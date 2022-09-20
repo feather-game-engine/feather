@@ -1,0 +1,3 @@
+Entities are one of the main things you will be using to build your game. Everything, from the player, to enemies, to the world itself, is made out of entities.
+
+This documentation is currently a work in progress

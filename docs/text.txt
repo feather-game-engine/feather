@@ -1,0 +1,11 @@
+Text in the feather engine can be done with the simple function drawText(). This function takes quite a few arguments. The first one is a std::string of the actual text you wish to display. A std::string is used so that integers (such as a health of score value) can be displayed on this text, and different pieces of text can be put together. The next 4 arguments are all unsigned 8 bit integers, used to represent a RGBA color value. The first one is a red value, the second one green, the third one blue, and the fourth one represents alpha (or transparency). The next two values are regular integers, both representing the position of the text, with the first one being an X value and the second one being a Y value.
+
+EXAMPLE
+
+int score = 200;
+
+void onFrame(){
+	drawText("Score: " + to_str(score), 255, 255, 255, 255, 0, 0);
+}
+
+This will render a piece of white text in the upper left corner of the screen that says "Score: 200"

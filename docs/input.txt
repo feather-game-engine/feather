@@ -1,0 +1,12 @@
+Input is handled in feather through just one function currently, although more are planned in the future. This function is the isKeyHeld() function, which returns true when a certain key is held and false if it isn't. It takes an integer for the key to check. Shorthands for the int are currently defined for a few different keys, and more are planned. The currently available keys are Key_Up, Key_Down, Key_Left, Key_Right, and Key_Space, representing the arrow keys and space key.
+
+EXAMPLE
+
+void onFrame(){
+	if(isKeyHeld(KeyUp)){
+		//Do omething
+	}
+	if(isKeyHeld(KeyDown)){
+		//Do something else
+	}
+}
