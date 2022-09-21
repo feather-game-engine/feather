@@ -22,7 +22,7 @@ If you do contribute, you may place your name/username here
 
 ## Documentation
 
-Documentation is available in the docs/ directory. I may also make a tutorial when I have some time (if you wish to make a tutorial, go ahead and tell me, I will link it here)
+Documentation is available in the docs/ directory. I may also make a tutorial when I have some time (if you wish to make a tutorial, go ahead and tell me, I will link it here). There is also an example project available in example/
 
 ## Building
 
@@ -61,6 +61,9 @@ As features are introduced and planned, they will appear here. Not all features 
 - Different sizes of text and custom font loading
 - More advanced debugging inside the engine, such as returning an error when a sound is not found (similar to what is done for images currently)
 - Finished documentation
+- A simple physics system
+- Entity instancing/cloning (similar to Instantiate() in Unity3D)
+- Updating the example project to showcase all features.
 
 If you want to suggest a feature, open an issue.
 
