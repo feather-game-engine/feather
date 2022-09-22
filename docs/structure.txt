@@ -8,6 +8,10 @@ include/
 
 This directory is planned to actually contain the SDL libraries itself, although currently it is empty and just a placeholder.
 
+example/
+
+Example holds an example project showcasing some basic features of the engine, as well as a few sample assets.
+
 feather/
 
 The feather directory contains all the code for the engine itself. If you want to modify any of the backend code of the engine or implement a new feature, or just study it for fun, take a look here. This is also where the main function is.
