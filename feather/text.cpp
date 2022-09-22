@@ -14,9 +14,3 @@ int drawText(std::string s, Uint8 r, Uint8 g, Uint8 b, Uint8 a, int x, int y){
 	SDL_DestroyTexture(texture);
 	return 0;
 }
-
-/*char *i2s(int i){
-	char *s;
-	sprintf(s, "%d", i);
-	return s;
-}*/
