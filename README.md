@@ -26,7 +26,7 @@ Documentation is available in the docs/ directory. I may also make a tutorial wh
 
 ## Building
 
-Building/compiling the engine is still a little difficult, as you will need bring your own buildsystem. The files you need to compile are *game.cpp*, *feather/main.cpp*, *feather/entity.cpp*, *feather/input.cpp*, *feather/sound.cpp*, *feather/debug.cpp*, and *feather/text.cpp*. You will also need to link SDL2, SDL2_image, SDL2_mixer, and SDL2_ttf, all of which will be available in the include/ directory in the near future. An example Makefile is included in the project.
+Building/compiling the engine is still a little difficult, as you will need bring your own buildsystem. The files you need to compile are *game.cpp*, *feather/main.cpp*, *feather/entity.cpp*, *feather/input.cpp*, *feather/sound.cpp*, *feather/debug.cpp*, *feather/util.cpp*, and *feather/text.cpp*. You will also need to link SDL2, SDL2_image, SDL2_mixer, and SDL2_ttf, all of which will be available in the include/ directory in the near future. An example Makefile is included in the project.
 
 ## Funding & Sponsors
 
@@ -57,7 +57,6 @@ As features are introduced and planned, they will appear here. Not all features 
 - Basic rotation
 - More advanced input (key release and key press functions, as well as support for more keys)
 - Higher quality documentation & documentation translations
-- Random number generator (seed in init step, create a range(int, int) function to get a random number)
 - Different sizes of text and custom font loading
 - More advanced debugging inside the engine, such as returning an error when a sound is not found (similar to what is done for images currently)
 - Finished documentation

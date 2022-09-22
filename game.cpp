@@ -4,6 +4,7 @@
 #include "feather/text.h"
 #include "feather/sound.h"
 #include "feather/debug.h"
+#include "feather/util.h"
 
 using namespace std;
 

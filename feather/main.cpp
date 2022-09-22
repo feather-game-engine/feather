@@ -43,6 +43,9 @@ int main(){
 	font = TTF_OpenFont("feather/FreeSans.ttf", 25);
 	std::cout << "Font loaded" << std::endl;
 
+	srand((unsigned) time(0));
+	std::cout << "RNG created" << std::endl;
+
 	SDL_SetRenderDrawColor(rend, 81, 144, 245, 255);
 
 	Begin();

@@ -6,6 +6,8 @@
 #include <SDL2/SDL_mixer.h>
 #include <iostream>
 #include <string>
+#include <stdlib.h>
+#include <ctime>
 
 extern SDL_Window *win;
 extern SDL_Renderer *rend;
