@@ -23,4 +23,5 @@ class Entity {
 
 		bool Collided(Entity e);
 };
+
 #endif
