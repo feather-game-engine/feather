@@ -46,7 +46,7 @@ int main(){
 	srand((unsigned) time(0));
 	std::cout << "RNG created" << std::endl;
 
-	SDL_SetRenderDrawColor(rend, 81, 144, 245, 255);
+	SDL_SetRenderDrawColor(rend, bgColor[0], bgColor[1], bgColor[2], bgColor[3]);
 
 	Begin();
 
