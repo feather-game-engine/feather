@@ -29,7 +29,7 @@ Documentation is available in the docs/ directory. I may also make a tutorial wh
 
 ## Building
 
-Building/compiling the engine is still a little difficult, as you will need bring your own buildsystem. The files you need to compile are *game.cpp*, *feather/main.cpp*, *feather/entity.cpp*, *feather/input.cpp*, *feather/sound.cpp*, *feather/debug.cpp*, *feather/util.cpp*, and *feather/text.cpp*. An example Makefile is included in the project which has all the required links, includes, and libraries already specified. 
+Building/compiling the engine is still a little difficult, as you will need bring your own buildsystem. The files you need to compile are *game.cpp*, *feather/main.cpp*, *feather/entity.cpp*, *feather/input.cpp*, *feather/sound.cpp*, *feather/debug.cpp*, *feather/util.cpp*, and *feather/text.cpp*. An example Makefile is included in the project which has all the required SDL links, includes, and libraries already specified. 
 
 ## Funding & Sponsors
 
