@@ -36,7 +36,7 @@ If you wish to contribute to the development of feather but have no programming 
 
 ## Shipping a game
 
-As mentioned earlier, building the engine is still quite hard. If you do compile an executable, you must ship that executable in a directory with a copy of the assets/ directory. Unfortunately, since the engine still has no way of compiling games, the assets will be modifiable by the end user (which you may not want). In the future, these assets will be encrypted. 
+Shipping a game is still a WIP. For now, you can run make ship to create a basic folder holding all the necessary things.
 
 ## Planned Features
 

@@ -1,6 +1,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 #include "core.h"
+#include "transform.h"
 
 extern const Uint8 *keyState;
 
@@ -12,6 +13,6 @@ const int Key_Space = 4;
 
 bool isKeyHeld(int key);
 
-int[2] getMousePosition();
+Transform getMousePosition();
 
 #endif

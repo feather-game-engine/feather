@@ -31,10 +31,8 @@ bool isKeyHeld(int key){
 	return false;
 }
 
-int[2] getMousePosition(){
-	int x;
-	int y;
-	SDL_GetMouseState(&x, &y);
-	int[2] mousePosition = { x, y };
+Transform getMousePosition(){
+	Transform mousePosition;
+	SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 	return mousePosition;
 }
