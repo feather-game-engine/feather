@@ -10,6 +10,7 @@ using namespace std;
 
 //Runs on first frame
 void Begin(){
+	Crash("bowoowowo");
 }
 
 //Runs every frame

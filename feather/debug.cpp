@@ -6,7 +6,7 @@ int Log(const char *message){
 }
 
 int Crash(const char *message){
-	std::cout << "Fatal Error: " << message << ". Engine will now shut down." << std::endl;
+	std::cout << red << "FATAL ERROR: " << reset << message << ". Engine will now shut down." << std::endl;
 	running = false;
 	return 0;
 }
