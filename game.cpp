@@ -13,7 +13,7 @@ void Begin(){
 }
 
 //Runs every frame
-void onFrame(){
+void Step(){
 }
 
 //Runs on last frame

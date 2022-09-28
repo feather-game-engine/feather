@@ -21,6 +21,6 @@ extern Uint64 lastFrame;
 extern Uint64 currentFrame;
 
 void Begin();
-void onFrame();
+void Step();
 void End();
 #endif

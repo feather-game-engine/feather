@@ -64,7 +64,7 @@ int main(){
 
 		SDL_RenderClear(rend);
 
-		onFrame();
+		Step();
 
 		SDL_RenderPresent(rend);
 	}
