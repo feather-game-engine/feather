@@ -6,7 +6,11 @@ The docs directory holds all the documentation for the game engine. If you are l
 
 include/
 
-This directory is planned to actually contain the SDL libraries itself, although currently it is empty and just a placeholder.
+This directory holds all the headers for SDL2, SDL2_image, SDL2_mixer, and SDL2_ttf.
+
+lib/
+
+This directory holds all the libraries for SDL2, SDL2_image, SDL2_mixer, and SDL2_ttf.
 
 example/
 
