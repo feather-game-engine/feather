@@ -20,6 +20,8 @@ This project is developed by me in my spare time. Feel free to open a PR or make
 
 If you do contribute, you may place your name/username here
 
+- Adamek-K
+
 ## Documentation
 
 Documentation is available in the docs/ directory. I may also make a tutorial when I have some time (if you wish to make a tutorial, go ahead and tell me, I will link it here). There is also an example project available in example/
