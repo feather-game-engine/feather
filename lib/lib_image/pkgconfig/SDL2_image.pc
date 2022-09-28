@@ -1,0 +1,14 @@
+prefix=/opt/homebrew
+exec_prefix=${prefix}
+libdir=/opt/homebrew/Cellar/sdl2_image/2.6.2/lib
+includedir=${prefix}/include
+
+Name: SDL2_image
+Description: image loading library for Simple DirectMedia Layer
+Version: 2.6.2
+Requires: sdl2 >= 2.0.9
+Libs: -L${libdir} -lSDL2_image
+Requires.private: libpng libjpeg libtiff-4 libwebp 
+Libs.private: 
+Cflags: -I${includedir}/SDL2
+
