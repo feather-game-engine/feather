@@ -63,7 +63,6 @@ As features are introduced and planned, they will appear here. Not all features 
 - A simple physics system
 - Entity instancing/cloning (similar to Instantiate() in Unity3D)
 - Updating the example project to showcase all features.
-- Mouse Input
 
 If you want to suggest a feature, open an issue.
 

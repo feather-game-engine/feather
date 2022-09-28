@@ -12,4 +12,6 @@ const int Key_Space = 4;
 
 bool isKeyHeld(int key);
 
+int[2] getMousePosition();
+
 #endif
