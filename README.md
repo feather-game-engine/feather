@@ -36,7 +36,7 @@ If you wish to contribute to the development of feather but have no programming 
 
 ## Shipping a game
 
-Shipping a game is still a WIP. For now, you can run make ship to create a basic folder holding all the necessary things.
+Shipping a game is still a WIP. For now, you can run ``make ship`` to create a basic folder holding all the necessary things.
 
 ## Planned Features
 
