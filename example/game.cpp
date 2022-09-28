@@ -78,7 +78,7 @@ void Begin(){
 }
 
 //Runs every frame
-void onFrame(){
+void Step(){
 	if(isKeyHeld(Key_Up)){
 		Player.transform.y -= speed;
 	}

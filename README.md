@@ -12,7 +12,7 @@ To use the Feather Engine, just clone this git repo (it acts as a template). Mak
 
 ## Technology
 
-This project uses SDL2/OpenGL for access to input and graphics hardware. SDL is planned to be included in this template. Building this project is still a bit tough, as I am still experimenting with buildsystems. I hope to be able to get something worked out soon. If you find something that works well with the engine, feel free to either open an issue or open a PR implementing it yourself.
+This project uses SDL2/OpenGL for access to input and graphics hardware. SDL is already included in this template. Building this project is still a bit tough, as I am still experimenting with buildsystems. I hope to be able to get something worked out soon. If you find something that works well with the engine, feel free to either open an issue or open a PR implementing it yourself.
 
 ## Developers
 
@@ -21,6 +21,7 @@ This project is developed by me in my spare time. Feel free to open a PR or make
 If you do contribute, you may place your name/username here
 
 - Adamek-K
+- BoogeyMan
 
 ## Documentation
 
@@ -28,7 +29,7 @@ Documentation is available in the docs/ directory. I may also make a tutorial wh
 
 ## Building
 
-Building/compiling the engine is still a little difficult, as you will need bring your own buildsystem. The files you need to compile are *game.cpp*, *feather/main.cpp*, *feather/entity.cpp*, *feather/input.cpp*, *feather/sound.cpp*, *feather/debug.cpp*, *feather/util.cpp*, and *feather/text.cpp*. You will also need to link SDL2, SDL2_image, SDL2_mixer, and SDL2_ttf, all of which will be available in the include/ directory in the near future. An example Makefile is included in the project.
+Building/compiling the engine is still a little difficult, as you will need bring your own buildsystem. The files you need to compile are *game.cpp*, *feather/main.cpp*, *feather/entity.cpp*, *feather/input.cpp*, *feather/sound.cpp*, *feather/debug.cpp*, *feather/util.cpp*, and *feather/text.cpp*. An example Makefile is included in the project which has all the required links, includes, and libraries already specified. 
 
 ## Funding & Sponsors
 
