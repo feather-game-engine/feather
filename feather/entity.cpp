@@ -28,7 +28,7 @@ int Entity::swapSprite(const char *spritePath){
 
 int Entity::Draw(){
 	if(active){
-		SDL_Rect dst = { transform.x, transform.y, transform.width, transform.height };
+		SDL_Rect dst = { transform.position.x, transform.position.y, transform.scale.x, transform.scale.y };
 		SDL_RenderCopy(rend, sprite, NULL, &dst);
 	}
 	return 0;
@@ -50,16 +50,16 @@ int Entity::Create(const char *spritePath, int x, int y, int width, int height){
 	}
 	sprite = SDL_CreateTextureFromSurface(rend, image);
 	SDL_FreeSurface(image);
-	transform.x = x;
-	transform.y = y;
-	transform.width = width;
-	transform.height = height;
+	transform.position.x = x;
+	transform.position.y = y;
+	transform.scale.x = width;
+	transform.scale.y = height;
 	active = true;
 	return 0;
 }
 
 bool Entity::Collided(Entity e){
-	SDL_Rect dst1 = { transform.x, transform.y, transform.width, transform.height };
-	SDL_Rect dst2 = { e.transform.x, e.transform.y, e.transform.width, e.transform.height };
+	SDL_Rect dst1 = { transform.position.x, transform.position.y, transform.scale.x, transform.scale.y };
+	SDL_Rect dst2 = { e.transform.position.x, e.transform.position.y, e.transform.scale.x, e.transform.scale.y };
 	return SDL_HasIntersection(&dst1, &dst2);
 }

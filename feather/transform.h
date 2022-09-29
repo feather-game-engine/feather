@@ -1,12 +1,11 @@
 #ifndef TRANSFORM_H
 #define TRANSFORM_H
 #include "core.h"
+#include "vector.h"
 
 class Transform{
 	public:
-		int x;
-		int y;
-		int width;
-		int height;
+		Vector position;
+		Vector scale;
 };
 #endif

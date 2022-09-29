@@ -33,6 +33,9 @@ bool isKeyHeld(int key){
 
 Transform getMousePosition(){
 	Transform mousePosition;
-	SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+	int x = static_cast<int>(mousePosition.position.x);
+	int y = static_cast<int>(mousePosition.position.y);
+
+	SDL_GetMouseState(&x, &y);
 	return mousePosition;
 }
