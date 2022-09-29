@@ -1,7 +1,6 @@
 #include "core.h"
 #include "input.h"
 #include "../PROJECT.h"
-#include "vector.h"
 
 bool running = true;
 SDL_Window *win = NULL;

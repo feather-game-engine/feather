@@ -23,49 +23,49 @@ bool nleft = true;
 
 void moveBall(){
 	if(down){
-		Ball.transform.position.y += ballSpeed;
+		Ball.transform.y += ballSpeed;
 	}
 	else if(!down){
-		Ball.transform.position.y -= ballSpeed;
+		Ball.transform.y -= ballSpeed;
 	}
 
 	if(nleft){
-		Ball.transform.position.x += ballSpeed;
+		Ball.transform.x += ballSpeed;
 	}
 	else if(!nleft){
-		Ball.transform.position.x -= ballSpeed;
+		Ball.transform.x -= ballSpeed;
 	}
 }
 
 void collideBall(){
-	if(Ball.transform.position.x <= 0){
+	if(Ball.transform.x <= 0){
 		nleft = true;
 	}
-	else if(Ball.transform.position.x >= 1830){
+	else if(Ball.transform.x >= 1830){
 		nleft = false;
 	}
 
-	if(Ball.transform.position.y <= 0){
+	if(Ball.transform.y <= 0){
 		down = true;
 	}
-	else if(Ball.transform.position.y >= 1000){
+	else if(Ball.transform.y >= 1000){
 		down = false;
 	}
 }
 
 void collidePlayer(){
-	if(Player.transform.position.x <= 0){
-		Player.transform.position.x = 0;
+	if(Player.transform.x <= 0){
+		Player.transform.x = 0;
 	}
-	else if(Player.transform.position.x >= 1830){
-		Player.transform.position.x = 1830;
+	else if(Player.transform.x >= 1830){
+		Player.transform.x = 1830;
 	}
 
-	if(Player.transform.position.y <= 0){
-		Player.transform.position.y = 0;
+	if(Player.transform.y <= 0){
+		Player.transform.y = 0;
 	}
-	else if(Player.transform.position.y >= 1000){
-		Player.transform.position.y = 1000;
+	else if(Player.transform.y >= 1000){
+		Player.transform.y = 1000;
 	}
 }
 
@@ -80,21 +80,21 @@ void Begin(){
 //Runs every frame
 void Step(){
 	if(isKeyHeld(Key_Up)){
-		Player.transform.position.y -= speed;
+		Player.transform.y -= speed;
 	}
 	if(isKeyHeld(Key_Down)){
-		Player.transform.position.y += speed;
+		Player.transform.y += speed;
 	}
 	if(isKeyHeld(Key_Left)){
-		Player.transform.position.x -= speed;
+		Player.transform.x -= speed;
 	}
 	if(isKeyHeld(Key_Right)){
-		Player.transform.position.x += speed;
+		Player.transform.x += speed;
 	}
 
 	if(alive){
 		string scoreText = "Score: " + to_string(score);
-		drawText(scoreText, 255, 255, 255, 255, Player.transform.position.x, Player.transform.position.y - 50);
+		drawText(scoreText, 255, 255, 255, 255, Player.transform.x, Player.transform.y - 50);
 	}
 
 	if(alive){
