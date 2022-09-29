@@ -1,11 +1,14 @@
 #ifndef VECTOR_H
 #define VECTOR_H
+#include "core.h"
 
 class Vector{
 	public:
-		int x;
-		int y;
+		float x;
+		float y;
 	
-	void Normalize();
+	float Magnitude();
+	Vector Normalize();
+};
 
 #endif
