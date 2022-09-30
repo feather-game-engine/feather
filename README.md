@@ -20,7 +20,7 @@ This project is developed by me in my spare time. Feel free to open a PR or make
 
 If you do contribute, you may place your name/username here
 
-- Adamek-K
+- Adamek-K (aka IAMACAR)
 - BoogeyMan
 
 ## Documentation
