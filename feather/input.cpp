@@ -31,10 +31,10 @@ bool isKeyHeld(int key){
 	return false;
 }
 
-Transform getMousePosition(){
-	Transform mousePosition;
-	int x = static_cast<int>(mousePosition.position.x);
-	int y = static_cast<int>(mousePosition.position.y);
+Vector getMousePosition(){
+	Vector mousePosition;
+	int x = static_cast<int>(mousePosition.x);
+	int y = static_cast<int>(mousePosition.y);
 
 	SDL_GetMouseState(&x, &y);
 	return mousePosition;

@@ -13,6 +13,6 @@ const int Key_Space = 4;
 
 bool isKeyHeld(int key);
 
-Transform getMousePosition();
+Vector getMousePosition();
 
 #endif
