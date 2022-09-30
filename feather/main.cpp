@@ -18,7 +18,7 @@ double delta = 0;
 Uint64 lastFrame = SDL_GetPerformanceCounter();
 Uint64 currentFrame = 0;
 
-int main(){
+int main(int argc, char **argv){
 	std::cout << "Starting Feather" << std::endl;
 
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -27,7 +27,15 @@ int main(){
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 	std::cout << "Initialising SDL" << std::endl;
 
-	win = SDL_CreateWindow(TITLE, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, DEFAULT_WIDTH, DEFAULT_HEIGHT, 0);
+	std::string windowtitle;
+	if(DEBUG_MODE){
+		windowtitle = std::string(TITLE) + " (DEBUG MODE)";
+	}
+	else{
+		windowtitle = TITLE;
+	}
+
+	win = SDL_CreateWindow(windowtitle.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, DEFAULT_WIDTH, DEFAULT_HEIGHT, 0);
 	if(win == NULL){
 		std::cout << "Error -1. Failed to create window." << std::endl;
 		return -1;
