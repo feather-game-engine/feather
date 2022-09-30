@@ -9,6 +9,9 @@ class Vector{
 	
 	float Magnitude();
 	Vector Normalize();
+
+	Vector operator +(const Vector vec);
+	Vector operator -(const Vector vec);
 };
 
 #endif

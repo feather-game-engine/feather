@@ -18,3 +18,17 @@ Vector Vector::Normalize(){
 
 	return vectorNorm;
 }
+
+Vector Vector::operator +(const Vector vec){
+	Vector res;
+	res.x = x + vec.x;
+	res.y = y + vec.y;
+	return res;
+}
+
+Vector Vector::operator -(const Vector vec){
+	Vector res;
+	res.x = x - vec.x;
+	res.y = y - vec.y;
+	return res;
+}
