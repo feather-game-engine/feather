@@ -1,0 +1,1 @@
+Program('game', ['game.cpp', Glob('feather/*.cpp')], LIBS=['SDL2', 'SDL2_image', 'SDL2_ttf', 'SDL2_mixer'], LIBPATH='lib/*')
