@@ -17,7 +17,7 @@ int resumeMusic(){
 	return 0;
 }
 
-int playSound(const char *soundPath, int channel){
-	Mix_PlayChannel(channel, Mix_LoadWAV(soundPath), 0);
-	return 0;
-}
+/* int playSound(const char *soundPath){ */
+/* 	Mix_PlayChannel(-1, Mix_LoadWAV(soundPath), 0); */
+/* 	return 0; */
+/* } */

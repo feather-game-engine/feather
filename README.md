@@ -12,7 +12,7 @@ To use the Feather Engine, just clone this git repo (it acts as a template). Mak
 
 ## Technology
 
-This project uses SDL2/OpenGL for access to input and graphics hardware. SDL is already included in this template. Building this project is still a bit tough, as I am still experimenting with buildsystems. I hope to be able to get something worked out soon. If you find something that works well with the engine, feel free to either open an issue or open a PR implementing it yourself.
+This project uses SDL2/OpenGL for access to input and graphics hardware. SDL is already included in this template. The project uses SCons as a buildsystem. I hope to be able to get something worked out soon. If you find something that works well with the engine, feel free to either open an issue or open a PR implementing it yourself.
 
 ## Developers
 
@@ -29,7 +29,7 @@ Documentation is available in the docs/ directory. I may also make a tutorial wh
 
 ## Building
 
-Building/compiling the engine is still a little difficult, as you will need bring your own buildsystem. The files you need to compile are *game.cpp*, *feather/main.cpp*, *feather/entity.cpp*, *feather/input.cpp*, *feather/sound.cpp*, *feather/debug.cpp*, *feather/util.cpp*, and *feather/text.cpp*. An example Makefile is included in the project which has all the required SDL links, includes, and libraries already specified. 
+The project uses SCons as it's buildsystem. Just run scons and it should compile fine. You can install scons through pip if you don't have it.
 
 ## Funding & Sponsors
 
@@ -37,7 +37,7 @@ If you wish to contribute to the development of feather but have no programming 
 
 ## Shipping a game
 
-Shipping a game is still a WIP. For now, you can run ``make ship`` to create a basic folder holding all the necessary things.
+Shipping a game is still a WIP.
 
 ## Planned Features
 
@@ -61,7 +61,7 @@ As features are introduced and planned, they will appear here. Not all features 
 - More advanced input (key release and key press functions, as well as support for more keys)
 - Higher quality documentation & documentation translations
 - Different sizes of text and custom font loading
-- More advanced debugging inside the engine, such as returning an error when a sound is not found (similar to what is done for images currently)
+- More advanced debugging inside the engine, such as returning an error when a sound is not found (similar to what is done for images currently). A debug mode (with a gui!) is currently being worked on.
 - Finished documentation
 - A simple physics system
 - Entity instancing/cloning (similar to Instantiate() in Unity3D)
@@ -72,3 +72,5 @@ If you want to suggest a feature, open an issue.
 ## Known Bugs
 
 These are bugs, both major and minor, that I am aware of and working on fixing. This could be another good place to get started if you are looking to contribute.
+
+- playSound() doesn't compile correctly for some reason.
