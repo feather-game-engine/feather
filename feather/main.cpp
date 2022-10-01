@@ -30,6 +30,7 @@ int main(int argc, char **argv){
 	std::string windowtitle;
 	if(DEBUG_MODE){
 		windowtitle = std::string(TITLE) + " (DEBUG MODE)";
+		std::cout << "Debug mode is enabled" << std::endl;
 	}
 	else{
 		windowtitle = TITLE;

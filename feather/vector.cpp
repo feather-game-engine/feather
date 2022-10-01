@@ -19,6 +19,12 @@ Vector Vector::Normalize(){
 	return vectorNorm;
 }
 
+int Vector::Reset(){
+	x = 0;
+	y = 0;
+	return 0;
+}
+
 Vector Vector::operator +(const Vector vec){
 	Vector res;
 	res.x = x + vec.x;
@@ -31,4 +37,16 @@ Vector Vector::operator -(const Vector vec){
 	res.x = x - vec.x;
 	res.y = y - vec.y;
 	return res;
+}
+
+int Vector::operator +=(const Vector vec){
+	x += vec.x;
+	y += vec.y;
+	return 0;
+}
+
+int Vector::operator -=(const Vector vec){
+	x -= vec.x;
+	y -= vec.y;
+	return 0;
 }
