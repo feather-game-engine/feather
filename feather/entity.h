@@ -7,6 +7,7 @@ class Entity {
 	private:
 		bool active;
 		SDL_Texture *sprite;
+		int id;
 	public:
 		Transform transform;
 
