@@ -8,10 +8,11 @@ float Vector::Magnitude(){
 Vector Vector::Normalize(){
 	float magnitude = Magnitude();
 	Vector vectorNorm;
-	if(magnitude > 0) {
+	if(magnitude > 0){
 		vectorNorm.x = pow(x / magnitude, 2);
 		vectorNorm.y = pow(y / magnitude, 2);
-	} else {
+	} 
+	else{
 		vectorNorm.x = 0;
 		vectorNorm.y = 0;
 	}
