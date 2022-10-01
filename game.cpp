@@ -5,7 +5,6 @@
 #include "feather/sound.h"
 #include "feather/debug.h"
 #include "feather/util.h"
-#include "feather/vector.h"
 
 using namespace std;
 

@@ -76,9 +76,10 @@ int main(int argc, char **argv){
 			running = false;
 		}
 
-		Step();
 
 		SDL_RenderClear(rend);
+
+		Step();
 
 		for(int i = 0; i < currentID; i++){
 			entityTracker[i]->Draw();
