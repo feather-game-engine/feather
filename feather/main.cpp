@@ -20,7 +20,7 @@ Uint64 lastFrame = SDL_GetPerformanceCounter();
 Uint64 currentFrame = 0;
 
 int currentID;
-Entity* entityTracker[2056];
+Entity *entityTracker[2056];
 
 int main(int argc, char **argv){
 	std::cout << "Starting Feather" << std::endl;
@@ -75,7 +75,6 @@ int main(int argc, char **argv){
 		if(event.type == SDL_QUIT){
 			running = false;
 		}
-
 
 		SDL_RenderClear(rend);
 
