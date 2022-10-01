@@ -55,6 +55,9 @@ int Entity::Create(const char *spritePath, int x, int y, int width, int height){
 	transform.scale.x = width;
 	transform.scale.y = height;
 	active = true;
+	id = currentID;
+	entityTracker[id] = this;
+	currentID += 1;
 	return 0;
 }
 

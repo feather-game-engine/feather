@@ -7,9 +7,9 @@ class Entity {
 	private:
 		bool active;
 		SDL_Texture *sprite;
-		int id;
 	public:
 		Transform transform;
+		int id;
 
 		bool isActive();
 
@@ -24,5 +24,7 @@ class Entity {
 
 		bool Collided(Entity e);
 };
+
+extern Entity *entityTracker[2056];
 
 #endif

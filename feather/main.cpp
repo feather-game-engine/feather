@@ -2,6 +2,7 @@
 #include "input.h"
 #include "../PROJECT.h"
 #include "vector.h"
+#include "entity.h"
 
 bool running = true;
 SDL_Window *win = NULL;
@@ -17,6 +18,9 @@ const Uint8 *keyState;
 double delta = 0;
 Uint64 lastFrame = SDL_GetPerformanceCounter();
 Uint64 currentFrame = 0;
+
+int currentID;
+Entity* entityTracker[2056];
 
 int main(int argc, char **argv){
 	std::cout << "Starting Feather" << std::endl;
@@ -72,14 +76,22 @@ int main(int argc, char **argv){
 			running = false;
 		}
 
+		Step();
+
 		SDL_RenderClear(rend);
 
-		Step();
+		for(int i = 0; i < currentID; i++){
+			entityTracker[i]->Draw();
+		}
 
 		SDL_RenderPresent(rend);
 	}
 
 	End();
+
+	for(int i = 0; i < currentID; i++){
+		entityTracker[i]->Destroy();
+	}
 
 	std::cout << "Stopping Music" << std::endl;
 	Mix_HaltMusic();
