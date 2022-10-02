@@ -61,6 +61,25 @@ int Entity::Create(const char *spritePath, int x, int y, int width, int height){
 	return 0;
 }
 
+int Entity::Create(const char *spritePath, Vector position, Vector scale){
+	SDL_Surface *image = IMG_Load(spritePath);
+	if(image == NULL){
+		std::cout << "Image with path " << spritePath << " has not been loaded." << std::endl;
+		return -1;
+	}
+	sprite = SDL_CreateTextureFromSurface(rend, image);
+	SDL_FreeSurface(image);
+	transform.position.x = position.x;
+	transform.position.y = position.y;
+	transform.scale.x = scale.x;
+	transform.scale.y = scale.y;
+	active = true;
+	id = currentID;
+	entityTracker[id] = this;
+	currentID += 1;
+	return 0;
+}
+
 bool Entity::Collided(Entity e){
 	SDL_Rect dst1 = { transform.position.x, transform.position.y, transform.scale.x, transform.scale.y };
 	SDL_Rect dst2 = { e.transform.position.x, e.transform.position.y, e.transform.scale.x, e.transform.scale.y };

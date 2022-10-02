@@ -20,7 +20,8 @@ class Entity {
 
 		int Draw();
 		int Destroy();
-		int Create(const char *spritePath, int x, int y, int width, int height);
+		virtual int Create(const char *spritePath, int x, int y, int width, int height);
+		virtual int Create(const char *spritePath, Vector position, Vector scale);
 
 		bool Collided(Entity e);
 

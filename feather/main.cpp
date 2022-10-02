@@ -3,6 +3,7 @@
 #include "../PROJECT.h"
 #include "vector.h"
 #include "entity.h"
+#include "rigidentity.h"
 
 bool running = true;
 SDL_Window *win = NULL;
@@ -64,6 +65,8 @@ int main(int argc, char **argv){
 
 	Begin();
 
+	Uint32 lastUpdate = SDL_GetTicks();
+
 	while(running){
 		lastFrame = currentFrame;
 		currentFrame = SDL_GetPerformanceCounter();
@@ -83,6 +86,23 @@ int main(int argc, char **argv){
 		for(int i = 0; i < currentID; i++){
 			entityTracker[i]->Draw();
 		}
+
+		//PHYSICS
+		Uint32 current = SDL_GetTicks();
+
+		// Calculate deltaTime (in seconds)
+		float deltaTime = (current - lastUpdate) / 1000.0f;
+
+		//Loop through all rigid entities and make them Update() their position
+		for(int i = 0; i < currentID; i++){
+			if(dynamic_cast<RigidEntity*>(entityTracker[i])) {
+				RigidEntity *rigidEntity = dynamic_cast<RigidEntity*>(entityTracker[i]);
+				rigidEntity->Update(deltaTime);
+			}
+		}
+
+		lastUpdate = current;
+		//END PHYSICS
 
 		SDL_RenderPresent(rend);
 	}

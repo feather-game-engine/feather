@@ -1,7 +1,7 @@
 import os
 
 if(os.name == 'posix'):
-	Program('game', ['game.cpp', Glob('feather/*.cpp')], LIBS=['SDL2', 'SDL2_image', 'SDL2_ttf', 'SDL2_mixer'], LIBPATH='lib/Unix/*')
+	Program('game', ['game.cpp', Glob('feather/*.cpp')], LIBS=['SDL2', 'SDL2_image', 'SDL2_ttf', 'SDL2_mixer'], LIBPATH=['lib/Unix/lib', 'lib/Unix/lib_image', 'lib/Unix/lib_ttf', 'lib/Unix/lib_mixer'])
 
 elif(os.name == 'nt'):
 	Program('game', ['game.cpp', Glob('feather/*.cpp')], LIBS=['SDL2', 'SDL2_image', 'SDL2_ttf', 'SDL2_mixer', 'SDL2main'], LIBPATH='lib/Windows/lib')
