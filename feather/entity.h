@@ -23,6 +23,8 @@ class Entity {
 		int Create(const char *spritePath, int x, int y, int width, int height);
 
 		bool Collided(Entity e);
+
+		int changeTransparency(Uint8 translucensy);
 };
 
 extern Entity *entityTracker[2056];

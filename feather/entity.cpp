@@ -66,3 +66,8 @@ bool Entity::Collided(Entity e){
 	SDL_Rect dst2 = { e.transform.position.x, e.transform.position.y, e.transform.scale.x, e.transform.scale.y };
 	return SDL_HasIntersection(&dst1, &dst2);
 }
+
+int changeTransparency(Uint8 translucensy){
+	SDL_SetTextureAlphaMod(sprite, translucensy);
+	return 0;
+}
