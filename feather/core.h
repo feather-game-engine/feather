@@ -1,9 +1,20 @@
 #ifndef CORE_H
 #define CORE_H
-#include "../include/SDL2/SDL.h"
-#include "../include/SDL2/SDL_image.h"
-#include "../include/SDL2/SDL_ttf.h"
-#include "../include/SDL2/SDL_mixer.h"
+
+#ifdef _WIN32
+#include "../include/Windows/SDL2/SDL.h"
+#include "../include/Windows/SDL2/SDL_image.h"
+#include "../include/Windows/SDL2/SDL_ttf.h"
+#include "../include/Windows/SDL2/SDL_mixer.h"
+#define SDL_main main
+#else
+#include "../include/Unix/SDL2/SDL.h"
+#include "../include/Unix/SDL2/SDL_image.h"
+#include "../include/Unix/SDL2/SDL_ttf.h"
+#include "../include/Unix/SDL2/SDL_mixer.h"
+#endif
+
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>
