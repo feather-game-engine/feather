@@ -16,18 +16,18 @@ int RigidEntity::Update(float deltaTime) {
 }
 
 
-int RigidEntity::AddForce(Vector forceVec) {
+int RigidEntity::addForce(Vector forceVec) {
 	force.x += forceVec.x;
 	force.y += forceVec.y;
 	return 0;
 }
 
-int RigidEntity::AddForceX(float xForce) {
+int RigidEntity::addForceX(float xForce) {
 	force.x += xForce;
 	return 0;
 }
 
-int RigidEntity::AddForceY(float yForce) {
+int RigidEntity::addForceY(float yForce) {
 	force.y += yForce;
 	return 0;
 }

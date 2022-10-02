@@ -6,16 +6,17 @@
 #include "feather/debug.h"
 #include "feather/util.h"
 #include "feather/vector.h"
+#include "feather/rigidentity.h"
 
 using namespace std;
 
 Entity Player;
-Entity Ball1;
-Entity Ball2;
-Entity Ball3;
-Entity Ball4;
-Entity Ball5;
-Entity Ball6;
+RigidEntity Ball1;
+RigidEntity Ball2;
+RigidEntity Ball3;
+RigidEntity Ball4;
+RigidEntity Ball5;
+RigidEntity Ball6;
 
 Vector offset;
 
@@ -32,6 +33,13 @@ void Begin(){
 	Ball5.Create("assets/ball.png", range(0, 1920), range(0, 1080), 256, 256);
 	Ball6.Create("assets/ball.png", range(0, 1920), range(0, 1080), 256, 256);
 
+	Ball1.addForceY(5);
+	Ball2.addForceY(5);
+	Ball3.addForceY(5);
+	Ball4.addForceY(5);
+	Ball5.addForceY(5);
+	Ball6.addForceY(5);
+
 	offset.x = -32;
 	offset.y = -32;
 
@@ -46,19 +54,19 @@ void Step(){
 
 	Player.transform.position = getMousePosition() + offset;
 
-	if(Player.Collided(Ball1) && Ball1.isActive()){
+	if(Player.Collided(Ball1)){
 		Ball1.Destroy();
 		cash += 1;
 	}
-	if(Player.Collided(Ball2) && Ball2.isActive()){
+	if(Player.Collided(Ball2)){
 		Ball2.Destroy();
 		cash += 1;
 	}
-	if(Player.Collided(Ball3) && Ball3.isActive()){
+	if(Player.Collided(Ball3)){
 		Ball3.Destroy();
 		cash += 1;
 	}
-	if(Player.Collided(Ball4) && Ball4.isActive()){
+	if(Player.Collided(Ball4)){
 		Ball4.Destroy();
 		cash += 1;
 	}
@@ -70,6 +78,13 @@ void Step(){
 		Ball6.Destroy();
 		cash += 1;
 	}
+
+	Ball1.addForceY(40);
+	Ball2.addForceY(40);
+	Ball3.addForceY(40);
+	Ball4.addForceY(40);
+	Ball5.addForceY(40);
+	Ball6.addForceY(40);
 }
 
 //Runs on last frame

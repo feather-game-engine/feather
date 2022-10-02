@@ -18,9 +18,9 @@ class RigidEntity : public Entity {
 		float mass = 1;
 		Vector force = Vector(0, 0);
 
-		int AddForce(Vector force);
-		int AddForceX(float x);
-		int AddForceY(float Y);
+		int addForce(Vector force);
+		int addForceX(float x);
+		int addForceY(float Y);
 
 		int Update(float deltaTime);
 };

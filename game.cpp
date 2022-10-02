@@ -6,6 +6,7 @@
 #include "feather/debug.h"
 #include "feather/util.h"
 #include "feather/vector.h"
+#include "feather/rigidentity.h"
 
 using namespace std;
 

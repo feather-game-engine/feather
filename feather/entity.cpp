@@ -81,6 +81,13 @@ int Entity::Create(const char *spritePath, Vector position, Vector scale){
 }
 
 bool Entity::Collided(Entity e){
+	if(active == false){
+		return false;
+	}
+	else if(!e.isActive()){
+		return false;
+	}
+
 	SDL_Rect dst1 = { transform.position.x, transform.position.y, transform.scale.x, transform.scale.y };
 	SDL_Rect dst2 = { e.transform.position.x, e.transform.position.y, e.transform.scale.x, e.transform.scale.y };
 	return SDL_HasIntersection(&dst1, &dst2);
