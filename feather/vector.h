@@ -7,15 +7,36 @@ class Vector{
 		float x;
 		float y;
 	
-	float Magnitude();
-	Vector Normalize();
+		Vector(float x = 0, float y = 0);
 
-	int Reset();
+		float Magnitude();
+		Vector Normalize();
 
-	Vector operator +(const Vector vec);
-	Vector operator -(const Vector vec);
-	int operator +=(const Vector vec);
-	int operator -=(const Vector vec);
+		int Reset();
+
+		Vector operator +(const Vector vec);
+		Vector operator +(const float val);
+
+		Vector operator -(const Vector vec);
+		Vector operator -(const float val);
+
+		Vector operator *(const Vector vec);
+		Vector operator *(const float val);
+
+		Vector operator /(const Vector vec);
+		Vector operator /(const float val);
+
+		int operator +=(const Vector vec);
+		int operator +=(const float val);
+
+		int operator -=(const Vector vec);
+		int operator -=(const float val);
+
+		int operator *=(const Vector vec);
+		int operator *=(const float val);
+
+		int operator /=(const Vector vec);
+		int operator /=(const float val);
 };
 
 #endif
