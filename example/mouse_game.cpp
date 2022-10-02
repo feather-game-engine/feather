@@ -70,25 +70,8 @@ void Step(){
 		Ball6.Destroy();
 		cash += 1;
 	}
-
-	Player.Draw();
-
-	Ball1.Draw();
-	Ball2.Draw();
-	Ball3.Draw();
-	Ball4.Draw();
-	Ball5.Draw();
-	Ball6.Draw();
 }
 
 //Runs on last frame
 void End(){
-	Player.Destroy();
-
-	Ball1.Destroy();
-	Ball2.Destroy();
-	Ball3.Destroy();
-	Ball4.Destroy();
-	Ball5.Destroy();
-	Ball6.Destroy();
 }

@@ -120,13 +120,8 @@ void Step(){
 		alive = false;
 		playSound("assets/destroy.wav", -1);
 	}
-
-	Player.Draw();
-	Ball.Draw();
 }
 
 //Runs on last frame
 void End(){
-	Player.Destroy();
-	Ball.Destroy();
 }
