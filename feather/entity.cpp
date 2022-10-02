@@ -55,6 +55,9 @@ int Entity::Create(const char *spritePath, int x, int y, int width, int height){
 	transform.scale.x = width;
 	transform.scale.y = height;
 	active = true;
+	id = currentID;
+	entityTracker[id] = this;
+	currentID += 1;
 	return 0;
 }
 
@@ -62,4 +65,9 @@ bool Entity::Collided(Entity e){
 	SDL_Rect dst1 = { transform.position.x, transform.position.y, transform.scale.x, transform.scale.y };
 	SDL_Rect dst2 = { e.transform.position.x, e.transform.position.y, e.transform.scale.x, e.transform.scale.y };
 	return SDL_HasIntersection(&dst1, &dst2);
+}
+
+int changeTransparency(Uint8 translucensy){
+	SDL_SetTextureAlphaMod(sprite, translucensy);
+	return 0;
 }

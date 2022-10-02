@@ -31,6 +31,8 @@ extern double delta;
 extern Uint64 lastFrame; 
 extern Uint64 currentFrame;
 
+extern int currentID;
+
 void Begin();
 void Step();
 void End();

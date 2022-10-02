@@ -8,15 +8,22 @@ float Vector::Magnitude(){
 Vector Vector::Normalize(){
 	float magnitude = Magnitude();
 	Vector vectorNorm;
-	if(magnitude > 0) {
+	if(magnitude > 0){
 		vectorNorm.x = pow(x / magnitude, 2);
 		vectorNorm.y = pow(y / magnitude, 2);
-	} else {
+	} 
+	else{
 		vectorNorm.x = 0;
 		vectorNorm.y = 0;
 	}
 
 	return vectorNorm;
+}
+
+int Vector::Reset(){
+	x = 0;
+	y = 0;
+	return 0;
 }
 
 Vector Vector::operator +(const Vector vec){
@@ -31,4 +38,16 @@ Vector Vector::operator -(const Vector vec){
 	res.x = x - vec.x;
 	res.y = y - vec.y;
 	return res;
+}
+
+int Vector::operator +=(const Vector vec){
+	x += vec.x;
+	y += vec.y;
+	return 0;
+}
+
+int Vector::operator -=(const Vector vec){
+	x -= vec.x;
+	y -= vec.y;
+	return 0;
 }

@@ -1,1 +1,0 @@
-The plan is to put the necessary SDL libraries the engine uses (SDL, SDL mixer, SDL ttf, etc.) into this directory. For now, however, it's just an empty placeholder.

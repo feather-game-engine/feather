@@ -37,5 +37,9 @@ Vector getMousePosition(){
 	int y = static_cast<int>(mousePosition.y);
 
 	SDL_GetMouseState(&x, &y);
+	
+	mousePosition.x = static_cast<float>(x);
+	mousePosition.y = static_cast<float>(y);
+
 	return mousePosition;
 }
