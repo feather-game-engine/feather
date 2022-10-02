@@ -1,17 +1,20 @@
 #include "rigidentity.h"
 #include <math.h>
 
+using namespace std;
 
 int RigidEntity::Update(float deltaTime) {
 	float time = deltaTime;
 
-	acceleration.x += (force.x / mass) * time ;
-	acceleration.y += ((force.y - gravity) / mass) * time;
+	acceleration.x = (force.x / mass);
+	acceleration.y = ((force.y - gravity) / mass);
 	force.x = 0;
 	force.y = 0;
 
 	velocity += acceleration * time;	
 	transform.position += velocity * time;
+
+	std::cout << velocity.y << std::endl;
 	return 0;
 }
 
