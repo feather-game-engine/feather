@@ -63,7 +63,6 @@ As features are introduced and planned, they will appear here. Not all features 
 - Different sizes of text and custom font loading
 - More advanced debugging inside the engine, such as returning an error when a sound is not found (similar to what is done for images currently). A debug mode (with a gui!) is currently being worked on.
 - Finished documentation
-- A simple physics system
 - Entity instancing/cloning (similar to Instantiate() in Unity3D)
 - Updating the example project to showcase all features.
 
