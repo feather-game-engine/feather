@@ -29,7 +29,7 @@ Documentation is available in the docs/ directory. I may also make a tutorial wh
 
 ## Building
 
-The project uses SCons as it's buildsystem. Just run scons and it should compile fine. You can install scons through pip if you don't have it.
+The project uses SCons as its buildsystem. Just run scons and it should compile fine. You can install scons through pip if you don't have it.
 
 ## Funding & Sponsors
 
