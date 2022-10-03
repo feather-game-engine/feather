@@ -10,7 +10,6 @@
 
 using namespace std;
 
-
 //Runs on first frame
 void Begin(){
 }
