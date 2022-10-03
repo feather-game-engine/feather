@@ -13,8 +13,6 @@ int RigidEntity::Update(float deltaTime) {
 
 	velocity += acceleration * time;	
 	transform.position += velocity * time;
-
-	std::cout << velocity.y << std::endl;
 	return 0;
 }
 
