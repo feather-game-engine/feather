@@ -12,7 +12,7 @@ To use the Feather Engine, just clone this git repo (it acts as a template). Mak
 
 ## Technology
 
-This project uses SDL2/OpenGL for access to input and graphics hardware. SDL is already included in this template. The project uses SCons as a buildsystem. I hope to be able to get something worked out soon. If you find something that works well with the engine, feel free to either open an issue or open a PR implementing it yourself.
+This project uses SDL2/OpenGL for access to input and graphics hardware and SCons as a buildsystem. You will need to install SCons yourself through pip, however I am considering shipping scons-local as part of the project.
 
 ## Developers
 
