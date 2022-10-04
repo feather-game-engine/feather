@@ -9,6 +9,6 @@ int swapMusic(const char *musicPath);
 int pauseMusic();
 int resumeMusic();
 
-/* int playSound(const char *soundPath); */
+int playSound(const char *soundPath);
 
 #endif

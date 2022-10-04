@@ -120,7 +120,7 @@ void Step(){
 	if(Player.Collided(Ball) && Player.isActive()){
 		Player.Destroy();
 		alive = false;
-		playSound("assets/destroy.wav", -1);
+		playSound("assets/destroy.wav");
 	}
 }
 

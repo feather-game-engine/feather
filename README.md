@@ -71,5 +71,3 @@ If you want to suggest a feature, open an issue.
 ## Known Bugs
 
 These are bugs, both major and minor, that I am aware of and working on fixing. This could be another good place to get started if you are looking to contribute.
-
-- playSound() doesn't compile correctly for some reason.
