@@ -4,6 +4,7 @@
 #include "vector.h"
 #include "entity.h"
 #include "rigidentity.h"
+#include <unordered_map>
 
 bool running = true;
 SDL_Window *win = NULL;
@@ -21,7 +22,7 @@ Uint64 lastFrame = SDL_GetPerformanceCounter();
 Uint64 currentFrame = 0;
 
 int currentID;
-Entity *entityTracker[2056];
+std::unordered_map<int, Entity*> entityTracker;
 
 int main(int argc, char **argv){
 	std::cout << "Starting Feather" << std::endl;
@@ -83,8 +84,8 @@ int main(int argc, char **argv){
 
 		Step();
 
-		for(int i = 0; i < currentID; i++){
-			entityTracker[i]->Draw();
+		for(auto element : entityTracker){
+			element.second->Draw();
 		}
 
 		//PHYSICS
@@ -94,9 +95,9 @@ int main(int argc, char **argv){
 		float deltaTime = (current - lastUpdate) / 1000.0f;
 
 		//Loop through all rigid entities and make them Update() their position
-		for(int i = 0; i < currentID; i++){
-			if(dynamic_cast<RigidEntity*>(entityTracker[i])) {
-				RigidEntity *rigidEntity = dynamic_cast<RigidEntity*>(entityTracker[i]);
+		for(auto element : entityTracker){
+			if(dynamic_cast<RigidEntity*>(element.second)) {
+				RigidEntity *rigidEntity = dynamic_cast<RigidEntity*>(element.second);
 				rigidEntity->Update(deltaTime);
 			}
 		}

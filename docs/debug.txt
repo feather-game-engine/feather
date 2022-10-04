@@ -6,3 +6,4 @@ void Begin(){
 	Log("Game Beggining");
 	Crash("Game Ending);
 }
+hello

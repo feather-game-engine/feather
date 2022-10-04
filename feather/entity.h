@@ -2,6 +2,7 @@
 #define ENTITY_H
 #include "core.h"
 #include "transform.h"
+#include <unordered_map>
 
 class Entity {
 	private:
@@ -28,6 +29,6 @@ class Entity {
 		int changeTransparency(Uint8 translucensy);
 };
 
-extern Entity *entityTracker[2056];
+extern std::unordered_map<int, Entity*> entityTracker;
 
 #endif
