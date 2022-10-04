@@ -7,5 +7,11 @@ class Transform{
 	public:
 		Vector position;
 		Vector scale;
+	
+	int Translate(int x, int y);
+	int Translate(Vector direction);
+
+	int Scale(int x, int y);
+	int Scale(Vector magnitude);
 };
 #endif

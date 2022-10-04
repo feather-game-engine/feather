@@ -22,6 +22,8 @@
 extern SDL_Window *win;
 extern SDL_Renderer *rend;
 
+/* SDL_GLContext gl; */
+
 extern SDL_Event event;
 
 extern bool running;
