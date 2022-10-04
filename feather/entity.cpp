@@ -38,6 +38,7 @@ int Entity::Destroy(){
 	if(active){
 		SDL_DestroyTexture(sprite);
 		active = false;
+		entityTracker.erase(id);
 	}
 	return 0;
 }
