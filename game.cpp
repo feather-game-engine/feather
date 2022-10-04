@@ -1,13 +1,4 @@
-#include "feather/core.h"
-#include "feather/entity.h"
-#include "feather/input.h"
-#include "feather/text.h"
-#include "feather/sound.h"
-#include "feather/debug.h"
-#include "feather/util.h"
-#include "feather/vector.h"
-#include "feather/rigidentity.h"
-
+#include "feather/include.h"
 using namespace std;
 
 //Runs on first frame
