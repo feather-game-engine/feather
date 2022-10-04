@@ -3,6 +3,7 @@
 #include "core.h"
 #include "transform.h"
 #include "entity.h"
+#include <unordered_map>
 
 class RigidEntity : public Entity {
 	private:
@@ -25,6 +26,6 @@ class RigidEntity : public Entity {
 		int Update(float deltaTime);
 };
 
-extern Entity *entityTracker[2056];
+extern std::unordered_map<int, Entity*> entityTracker;
 
 #endif
