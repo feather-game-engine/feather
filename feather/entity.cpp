@@ -28,7 +28,7 @@ int Entity::swapSprite(const char *spritePath){
 
 int Entity::Draw(){
 	if(active){
-		SDL_Rect dst = { transform.position.x, transform.position.y, transform.scale.x, transform.scale.y };
+		SDL_Rect dst = { (int)transform.position.x, (int)transform.position.y, (int)transform.scale.x, (int)transform.scale.y };
 		SDL_RenderCopyEx(rend, sprite, NULL, &dst, transform.angle, NULL, SDL_FLIP_NONE);
 	}
 	return 0;
@@ -76,8 +76,8 @@ bool Entity::Collided(Entity e){
 		return false;
 	}
 
-	SDL_Rect dst1 = { transform.position.x, transform.position.y, transform.scale.x, transform.scale.y };
-	SDL_Rect dst2 = { e.transform.position.x, e.transform.position.y, e.transform.scale.x, e.transform.scale.y };
+	SDL_Rect dst1 = { (int)transform.position.x, (int)transform.position.y, (int)transform.scale.x, (int)transform.scale.y };
+	SDL_Rect dst2 = { (int)e.transform.position.x, (int)e.transform.position.y, (int)e.transform.scale.x, (int)e.transform.scale.y };
 	return SDL_HasIntersection(&dst1, &dst2);
 }
 
