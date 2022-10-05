@@ -43,27 +43,12 @@ int Entity::Destroy(){
 	return 0;
 }
 
-int Entity::Create(const char *spritePath, int x, int y, int width, int height, double newAngle = 0.0){
-	SDL_Surface *image = IMG_Load(spritePath);
-	if(image == NULL){
-		std::cout << "Image with path " << spritePath << " has not been loaded." << std::endl;
-		return -1;
-	}
-	sprite = SDL_CreateTextureFromSurface(rend, image);
-	SDL_FreeSurface(image);
-	transform.position.x = x;
-	transform.position.y = y;
-	transform.scale.x = width;
-	transform.scale.y = height;
-	transform.angle = newAngle;
-	active = true;
-	id = currentID;
-	entityTracker[id] = this;
-	currentID += 1;
+int Entity::Create(const char *spritePath, int x, int y, int width, int height, double newAngle){
+	Entity::Create(spritePath, Vector(x, y), Vector(width, height), newAngle);
 	return 0;
 }
 
-int Entity::Create(const char *spritePath, Vector position, Vector scale, double newAngle = 0.0){
+int Entity::Create(const char *spritePath, Vector position, Vector scale, double newAngle){
 	SDL_Surface *image = IMG_Load(spritePath);
 	if(image == NULL){
 		std::cout << "Image with path " << spritePath << " has not been loaded." << std::endl;
