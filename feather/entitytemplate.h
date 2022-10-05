@@ -2,12 +2,13 @@
 
 #ifndef ENTITYTEMPLATE_H
 #define ENTITYTEMPLATE_H
+#include "core.h"
 
 class EntityTemplate{
 	private:
 		SDL_Texture *sprite;
 	
-	EntityTemplate(const char *spritePath)
+	EntityTemplate(const char *spritePath);
 };
 
 #endif
