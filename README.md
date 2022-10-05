@@ -22,6 +22,7 @@ If you do contribute, you may place your name/username here
 
 - Adamek-K (aka IAMACAR)
 - BoogeyMan
+- drakemj
 
 ## Documentation
 
@@ -57,7 +58,6 @@ As features are introduced and planned, they will appear here. Not all features 
 - Better structure for projects (easier to work with more than one file)
 - Automatic assets/ injection into asset paths. (type "player.png" instead of "assets/player.png")
 - Simple GUI, or at least some small helper utilities
-- Basic rotation
 - More advanced input (key release and key press functions, as well as support for more keys)
 - Higher quality documentation & documentation translations
 - Different sizes of text and custom font loading
@@ -71,3 +71,5 @@ If you want to suggest a feature, open an issue.
 ## Known Bugs
 
 These are bugs, both major and minor, that I am aware of and working on fixing. This could be another good place to get started if you are looking to contribute.
+
+- playSound() may not work, depending on your platform.

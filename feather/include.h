@@ -9,4 +9,5 @@
 #include "util.h"
 #include "vector.h"
 #include "rigidentity.h"
+#include "timer.h"
 #endif

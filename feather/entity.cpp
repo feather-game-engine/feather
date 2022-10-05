@@ -29,7 +29,7 @@ int Entity::swapSprite(const char *spritePath){
 int Entity::Draw(){
 	if(active){
 		SDL_Rect dst = { transform.position.x, transform.position.y, transform.scale.x, transform.scale.y };
-		SDL_RenderCopyEx(rend, sprite, NULL, &dst, angle, NULL, SDL_FLIP_NONE);
+		SDL_RenderCopyEx(rend, sprite, NULL, &dst, transform.angle, NULL, SDL_FLIP_NONE);
 	}
 	return 0;
 }
@@ -43,7 +43,7 @@ int Entity::Destroy(){
 	return 0;
 }
 
-int Entity::Create(const char *spritePath, int x, int y, int width, int height){
+int Entity::Create(const char *spritePath, int x, int y, int width, int height, double newAngle = 0.0){
 	SDL_Surface *image = IMG_Load(spritePath);
 	if(image == NULL){
 		std::cout << "Image with path " << spritePath << " has not been loaded." << std::endl;
@@ -55,7 +55,7 @@ int Entity::Create(const char *spritePath, int x, int y, int width, int height){
 	transform.position.y = y;
 	transform.scale.x = width;
 	transform.scale.y = height;
-	angle = 0.0;
+	transform.angle = newAngle;
 	active = true;
 	id = currentID;
 	entityTracker[id] = this;
@@ -63,7 +63,7 @@ int Entity::Create(const char *spritePath, int x, int y, int width, int height){
 	return 0;
 }
 
-int Entity::Create(const char *spritePath, Vector position, Vector scale){
+int Entity::Create(const char *spritePath, Vector position, Vector scale, double newAngle = 0.0){
 	SDL_Surface *image = IMG_Load(spritePath);
 	if(image == NULL){
 		std::cout << "Image with path " << spritePath << " has not been loaded." << std::endl;
@@ -75,7 +75,7 @@ int Entity::Create(const char *spritePath, Vector position, Vector scale){
 	transform.position.y = position.y;
 	transform.scale.x = scale.x;
 	transform.scale.y = scale.y;
-	angle = 0.0;
+	transform.angle = newAngle;
 	active = true;
 	id = currentID;
 	entityTracker[id] = this;

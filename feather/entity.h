@@ -11,7 +11,6 @@ class Entity {
 	public:
 		Transform transform;
 		int id;
-		double angle;
 
 		bool isActive();
 
@@ -22,8 +21,8 @@ class Entity {
 
 		int Draw();
 		int Destroy();
-		virtual int Create(const char *spritePath, int x, int y, int width, int height);
-		virtual int Create(const char *spritePath, Vector position, Vector scale);
+		virtual int Create(const char *spritePath, int x, int y, int width, int height, double newAngle = 0.0);
+		virtual int Create(const char *spritePath, Vector position, Vector scale, double newAngle = 0.0);
 
 		bool Collided(Entity e);
 
