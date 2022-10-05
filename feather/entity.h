@@ -11,6 +11,7 @@ class Entity {
 	public:
 		Transform transform;
 		int id;
+		double angle;
 
 		bool isActive();
 

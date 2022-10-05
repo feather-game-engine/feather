@@ -29,7 +29,7 @@ int Entity::swapSprite(const char *spritePath){
 int Entity::Draw(){
 	if(active){
 		SDL_Rect dst = { transform.position.x, transform.position.y, transform.scale.x, transform.scale.y };
-		SDL_RenderCopy(rend, sprite, NULL, &dst);
+		SDL_RenderCopyEx(rend, sprite, NULL, &dst, angle, NULL, SDL_FLIP_NONE);
 	}
 	return 0;
 }
@@ -55,6 +55,7 @@ int Entity::Create(const char *spritePath, int x, int y, int width, int height){
 	transform.position.y = y;
 	transform.scale.x = width;
 	transform.scale.y = height;
+	angle = 0.0;
 	active = true;
 	id = currentID;
 	entityTracker[id] = this;
@@ -74,6 +75,7 @@ int Entity::Create(const char *spritePath, Vector position, Vector scale){
 	transform.position.y = position.y;
 	transform.scale.x = scale.x;
 	transform.scale.y = scale.y;
+	angle = 0.0;
 	active = true;
 	id = currentID;
 	entityTracker[id] = this;
