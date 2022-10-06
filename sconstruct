@@ -1,8 +1,10 @@
 import os
+env = Environment(ENV = os.environ)
 
+env.Append( CCFLAGS=["/EHsc"]) 
 if(os.name == 'posix'):
-	Program('game', ['game.cpp', Glob('feather/*.cpp')], LIBS=['SDL2', 'SDL2_image', 'SDL2_ttf', 'SDL2_mixer'], LIBPATH=Glob('lib/Unix'))
+	env.Program('game', ['game.cpp', Glob('feather/*.cpp')], LIBS=['SDL2', 'SDL2_image', 'SDL2_ttf', 'SDL2_mixer'], LIBPATH=Glob('lib/Unix'))
 
 
 elif(os.name == 'nt'):
-	Program('game', ['game.cpp', Glob('feather/*.cpp')], LIBS=['SDL2', 'SDL2_image', 'SDL2_ttf', 'SDL2_mixer', 'SDL2main'], LIBPATH='lib/Windows/lib')
+	env.Program('game', ['game.cpp', Glob('feather/*.cpp')], LIBS=['SDL2', 'SDL2_image', 'SDL2_ttf', 'SDL2_mixer', 'SDL2main'], LIBPATH='lib/Windows/lib')
