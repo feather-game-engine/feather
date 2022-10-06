@@ -26,6 +26,11 @@ int Entity::swapSprite(const char *spritePath){
 	return 0;
 }
 
+SDL_Texture* Entity::getSprite() {
+	return sprite;
+}
+
+
 int Entity::Draw(){
 	if(active){
 		SDL_Rect dst = { transform.position.x, transform.position.y, transform.scale.x, transform.scale.y };
