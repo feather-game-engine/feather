@@ -22,15 +22,13 @@
 extern SDL_Window *win;
 extern SDL_Renderer *rend;
 
+extern bool running;
+
 /* SDL_GLContext gl; */
 
 extern SDL_Event event;
 
-extern bool running;
-
 extern double delta;
-extern Uint64 lastFrame; 
-extern Uint64 currentFrame;
 
 extern int currentID;
 

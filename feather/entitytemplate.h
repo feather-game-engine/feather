@@ -1,4 +1,5 @@
-//This is the beggining of the instancing system, which will allow you to dynamically make entities from "entity templates". It is still a work in progress.
+//This is the beggining of the instancing system, which will allow you to dynamically make entities from "entity templates"
+//It is still a WIP
 
 #ifndef ENTITYTEMPLATE_H
 #define ENTITYTEMPLATE_H

@@ -11,6 +11,9 @@ SDL_Window *win = NULL;
 SDL_Renderer *rend = NULL;
 SDL_Event event;
 
+bool paused;
+bool f1;
+
 Mix_Music *currentMusic;
 
 TTF_Font *font;
@@ -82,30 +85,49 @@ int main(int argc, char **argv){
 
 		SDL_RenderClear(rend);
 
-		Step();
+		if(!paused){
+			Step();
+		}
 
 		for(auto element : entityTracker){
 			element.second->Draw();
 		}
 
-		//PHYSICS
-		Uint32 current = SDL_GetTicks();
+		if(!paused){
+			//PHYSICS
+			Uint32 current = SDL_GetTicks();
 
-		// Calculate deltaTime (in seconds)
-		float deltaTime = (current - lastUpdate) / 1000.0f;
+			// Calculate deltaTime (in seconds)
+			float deltaTime = (current - lastUpdate) / 1000.0f;
 
-		//Loop through all rigid entities and make them Update() their position
-		for(auto element : entityTracker){
-			if(dynamic_cast<RigidEntity*>(element.second)) {
-				RigidEntity *rigidEntity = dynamic_cast<RigidEntity*>(element.second);
-				rigidEntity->Update(deltaTime);
+			//Loop through all rigid entities and make them Update() their position
+			for(auto element : entityTracker){
+				if(dynamic_cast<RigidEntity*>(element.second)) {
+					RigidEntity *rigidEntity = dynamic_cast<RigidEntity*>(element.second);
+					rigidEntity->Update(deltaTime);
+				}
+			}
+
+			lastUpdate = current;
+			//END PHYSICS
+		}
+
+		SDL_RenderPresent(rend);
+
+		if(DEBUG_MODE){
+			if(event.type == SDL_KEYDOWN){
+				if(event.key.keysym.sym == SDLK_F1 && !f1){
+					paused = !paused;
+					f1 = true;
+				}
+			}
+			if(event.type == SDL_KEYUP){
+				if(event.key.keysym.sym == SDLK_F1){
+					f1 = false;
+				}
 			}
 		}
 
-		lastUpdate = current;
-		//END PHYSICS
-
-		SDL_RenderPresent(rend);
 	}
 
 	End();
