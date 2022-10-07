@@ -7,6 +7,7 @@
 class Entity {
 	private:
 		bool active;
+		bool isClone = false;
 	protected:
 		SDL_Texture *sprite;
 	public:
@@ -14,7 +15,9 @@ class Entity {
 		int id;
 
 		bool isActive();
+		bool getIsClone();
 
+		int setClone();
 		int Enable();
 		int Disable();
 
@@ -25,6 +28,7 @@ class Entity {
 		int Destroy();
 		virtual int Create(const char *spritePath, int x, int y, int width, int height, double newAngle = 0.0);
 		virtual int Create(const char *spritePath, Vector position, Vector scale, double newAngle = 0.0);
+		virtual int Create(SDL_Texture* sprite, Transform t);
 
 		bool Collided(Entity e);
 

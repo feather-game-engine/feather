@@ -4,6 +4,10 @@ bool Entity::isActive(){
 	return active;
 }
 
+bool Entity::getIsClone() {
+	return isClone;
+}
+
 int Entity::Enable(){
 	active = true;
 	return 0;
@@ -11,6 +15,11 @@ int Entity::Enable(){
 
 int Entity::Disable(){
 	active = false;
+	return 0;
+}
+
+int Entity::setClone() {
+	isClone = true;
 	return 0;
 }
 
@@ -41,9 +50,12 @@ int Entity::Draw(){
 
 int Entity::Destroy(){
 	if(active){
-		SDL_DestroyTexture(sprite);
 		active = false;
 		entityTracker.erase(id);
+		if (!isClone)
+			SDL_DestroyTexture(sprite);
+		else
+			free(this);
 	}
 	return 0;
 }
@@ -70,6 +82,15 @@ int Entity::Create(const char *spritePath, Vector position, Vector scale, double
 	id = currentID;
 	entityTracker[id] = this;
 	currentID += 1;
+	return 0;
+}
+
+int Entity::Create(SDL_Texture* sprite, Transform t) {
+	this->sprite = sprite;
+	transform = t;
+	id = currentID;
+	entityTracker[currentID++] = this;
+	active = true;
 	return 0;
 }
 

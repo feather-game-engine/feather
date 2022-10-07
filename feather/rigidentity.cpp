@@ -16,17 +16,15 @@ int RigidEntity::Update(float deltaTime) {
 	return 0;
 }
 
-RigidEntity RigidEntity::clone() {
+RigidEntity* RigidEntity::clone() {
 	Transform t = transform;
 	return RigidEntity::clone(t);
 }
 
-RigidEntity RigidEntity::clone(Transform t) {
-	RigidEntity cloneEntity;
-	cloneEntity.transform = t;
-	cloneEntity.Entity::sprite = getSprite();
-	cloneEntity.Enable();
-	entityTracker[currentID++] = &(Entity)cloneEntity;
+RigidEntity* RigidEntity::clone(Transform t) {
+	RigidEntity *cloneEntity = new RigidEntity;
+	cloneEntity->Create(this->getSprite(), t);
+	cloneEntity->setClone();
 	return cloneEntity;
 }
 
