@@ -7,6 +7,7 @@
 class Entity {
 	private:
 		bool active;
+	protected:
 		SDL_Texture *sprite;
 	public:
 		Transform transform;
@@ -18,6 +19,7 @@ class Entity {
 		int Disable();
 
 		int swapSprite(const char *spritePath);
+		SDL_Texture* getSprite();
 
 		int Draw();
 		int Destroy();

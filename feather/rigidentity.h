@@ -12,6 +12,9 @@ class RigidEntity : public Entity {
 	public:
 		bool rigid = true;
 
+		RigidEntity clone();
+		RigidEntity clone(Transform t);
+
 		Vector velocity;
 		Vector acceleration;
 
