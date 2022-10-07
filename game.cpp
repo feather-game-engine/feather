@@ -3,13 +3,13 @@
 using namespace std;
 
 //Runs on first frame
-void Begin(){
+void Begin() {
 }
 
 //Runs every frame
-void Step(){
+void Step() {
 }
 
 //Runs on last frame
-void End(){
+void End() {
 }

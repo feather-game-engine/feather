@@ -4,6 +4,10 @@ bool Entity::isActive(){
 	return active;
 }
 
+bool Entity::getIsClone() {
+	return isClone;
+}
+
 int Entity::Enable(){
 	active = true;
 	return 0;
@@ -11,6 +15,11 @@ int Entity::Enable(){
 
 int Entity::Disable(){
 	active = false;
+	return 0;
+}
+
+int Entity::setClone() {
+	isClone = true;
 	return 0;
 }
 
@@ -26,6 +35,11 @@ int Entity::swapSprite(const char *spritePath){
 	return 0;
 }
 
+SDL_Texture* Entity::getSprite() {
+	return sprite;
+}
+
+
 int Entity::Draw(){
 	if(active){
 		SDL_Rect dst = { (int)transform.position.x, (int)transform.position.y, (int)transform.scale.x, (int)transform.scale.y };
@@ -36,9 +50,12 @@ int Entity::Draw(){
 
 int Entity::Destroy(){
 	if(active){
-		SDL_DestroyTexture(sprite);
 		active = false;
 		entityTracker.erase(id);
+		if (!isClone)
+			SDL_DestroyTexture(sprite);
+		else
+			free(this);
 	}
 	return 0;
 }
@@ -66,6 +83,26 @@ int Entity::Create(const char *spritePath, Vector position, Vector scale, double
 	entityTracker[id] = this;
 	currentID += 1;
 	return 0;
+}
+
+int Entity::Create(SDL_Texture* sprite, Transform t) {
+	this->sprite = sprite;
+	transform = t;
+	id = currentID;
+	entityTracker[currentID++] = this;
+	active = true;
+	return 0;
+}
+
+Entity* Entity::Clone() {
+	return this->Clone(transform);
+}
+
+Entity* Entity::Clone(Transform t) {
+	Entity* newEntity = new Entity;
+	newEntity->Create(this->sprite, t);
+	newEntity->setClone();
+	return newEntity;
 }
 
 bool Entity::Collided(Entity e){
