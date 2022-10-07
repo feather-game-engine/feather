@@ -16,12 +16,12 @@ int RigidEntity::Update(float deltaTime) {
 	return 0;
 }
 
-RigidEntity* RigidEntity::clone() {
+RigidEntity* RigidEntity::Clone() {
 	Transform t = transform;
-	return RigidEntity::clone(t);
+	return RigidEntity::Clone(t);
 }
 
-RigidEntity* RigidEntity::clone(Transform t) {
+RigidEntity* RigidEntity::Clone(Transform t) {
 	RigidEntity *cloneEntity = new RigidEntity;
 	cloneEntity->Create(this->getSprite(), t);
 	cloneEntity->setClone();

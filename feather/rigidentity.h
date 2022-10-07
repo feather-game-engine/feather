@@ -12,8 +12,8 @@ class RigidEntity : public Entity {
 	public:
 		bool rigid = true;
 
-		RigidEntity* clone();
-		RigidEntity* clone(Transform t);
+		RigidEntity* Clone();
+		RigidEntity* Clone(Transform t);
 
 		Vector velocity;
 		Vector acceleration;

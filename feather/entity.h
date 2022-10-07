@@ -29,6 +29,8 @@ class Entity {
 		virtual int Create(const char *spritePath, int x, int y, int width, int height, double newAngle = 0.0);
 		virtual int Create(const char *spritePath, Vector position, Vector scale, double newAngle = 0.0);
 		virtual int Create(SDL_Texture* sprite, Transform t);
+		virtual Entity* Clone();
+		virtual Entity* Clone(Transform t);
 
 		bool Collided(Entity e);
 

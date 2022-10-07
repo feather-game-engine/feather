@@ -94,6 +94,17 @@ int Entity::Create(SDL_Texture* sprite, Transform t) {
 	return 0;
 }
 
+Entity* Entity::Clone() {
+	return this->Clone(transform);
+}
+
+Entity* Entity::Clone(Transform t) {
+	Entity* newEntity = new Entity;
+	newEntity->Create(this->sprite, t);
+	newEntity->setClone();
+	return newEntity;
+}
+
 bool Entity::Collided(Entity e){
 	if(active == false){
 		return false;

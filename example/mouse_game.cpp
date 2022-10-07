@@ -15,6 +15,7 @@ int cash;
 //Runs on first frame
 void Begin() {
 	Player.Create("assets/player.png", 0, 0, 128, 128);
+	Player.Clone();
 
 	ball.Create("assets/ball.png", 30, 30, 140, 140);
 	ball.gravity = 0;
@@ -26,7 +27,7 @@ void Begin() {
 		random.position = Vector(range(0, 1920), range(0, 700));
 		random.scale = Vector(128, 128);
 		random.angle = 0.0;
-		balls.push_back(ball.clone(random));
+		balls.push_back(ball.Clone(random));
 	}
 
 	offset.x = -32;
