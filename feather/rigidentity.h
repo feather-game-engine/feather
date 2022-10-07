@@ -7,10 +7,13 @@
 
 class RigidEntity : public Entity {
 	private:
-		bool active;
+		bool active = false;
 		SDL_Texture *sprite;
 	public:
 		bool rigid = true;
+
+		RigidEntity* Clone();
+		RigidEntity* Clone(Transform t);
 
 		Vector velocity;
 		Vector acceleration;
