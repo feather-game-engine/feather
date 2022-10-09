@@ -13,6 +13,20 @@ int RigidEntity::Update(float deltaTime) {
 
 	velocity += acceleration * time * 200;	
 	transform.position += velocity * time;
+
+	//Collision
+	for (auto element : entityTracker) {
+		if (dynamic_cast<RigidEntity*>(element.second)) {
+			RigidEntity* rigidEntity = dynamic_cast<RigidEntity*>(element.second);
+			SDL_Rect dst1 = { transform.position.x, transform.position.y, transform.scale.x, transform.scale.y };
+			SDL_Rect dst2 = { rigidEntity->transform.position.x, rigidEntity->transform.position.y, rigidEntity->transform.scale.x, rigidEntity->transform.scale.y };
+			if (SDL_HasIntersection(&dst1, &dst2)) {
+				Vector move(dst1.x - dst2.x, dst1.y - dst2.y);
+				transform.position += move * 0.2;
+			}
+		}
+	}
+
 	return 0;
 }
 
