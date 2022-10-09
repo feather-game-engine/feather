@@ -47,7 +47,7 @@ As features are introduced and planned, they will appear here. Not all features 
 - A more advanced collision system
 - Game compiling system (a way to actually ship games)
 - Levels (like scenes in other engines)
-- Entity tagging
+- Entity grouping
 - A view (camera) system
 - A more modular design, and support for external modules
 - A timing system
