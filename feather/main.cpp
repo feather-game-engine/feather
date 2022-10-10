@@ -59,7 +59,7 @@ int main(int argc, char **argv){
 	}
 	std::cout << "Rendering context created" << std::endl;
 
-	font = TTF_OpenFont("feather/FreeSans.ttf", 25);
+	font = TTF_OpenFont("../feather/FreeSans.ttf", 25);
 	std::cout << "Font loaded" << std::endl;
 
 	srand((unsigned) time(0));
