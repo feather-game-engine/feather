@@ -26,6 +26,8 @@ class RigidEntity : public Entity {
 		int addForceX(float x);
 		int addForceY(float Y);
 
+		int testMove(Vector delta);
+
 		int Update(float deltaTime);
 };
 
