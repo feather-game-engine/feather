@@ -12,20 +12,9 @@ int RigidEntity::Update(float deltaTime) {
 	force.y = 0;
 
 	velocity += acceleration * time * 200;	
-	transform.position += velocity * time;
+	Vector delta = velocity * time;
 
-	//Collision
-	for (auto element : entityTracker) {
-		if (dynamic_cast<RigidEntity*>(element.second)) {
-			RigidEntity* rigidEntity = dynamic_cast<RigidEntity*>(element.second);
-			SDL_Rect dst1 = { transform.position.x, transform.position.y, transform.scale.x, transform.scale.y };
-			SDL_Rect dst2 = { rigidEntity->transform.position.x, rigidEntity->transform.position.y, rigidEntity->transform.scale.x, rigidEntity->transform.scale.y };
-			if (SDL_HasIntersection(&dst1, &dst2)) {
-				Vector move(dst1.x - dst2.x, dst1.y - dst2.y);
-				transform.position += move * 0.2;
-			}
-		}
-	}
+	testMove(delta);
 
 	return 0;
 }
@@ -57,4 +46,21 @@ int RigidEntity::addForceX(float xForce) {
 int RigidEntity::addForceY(float yForce) {
 	force.y += yForce;
 	return 0;
+}
+
+int RigidEntity::testMove(Vector delta) {
+	for (auto element : entityTracker) {
+		if (element.first == Entity::id) continue;
+		if (dynamic_cast<RigidEntity*>(element.second)) {
+			RigidEntity* rigidEntity = dynamic_cast<RigidEntity*>(element.second);
+			SDL_Rect dst1 = { transform.position.x + delta.x, transform.position.y + delta.y, transform.scale.x, transform.scale.y };
+			SDL_Rect dst2 = { rigidEntity->transform.position.x, rigidEntity->transform.position.y, rigidEntity->transform.scale.x, rigidEntity->transform.scale.y };
+			if (SDL_HasIntersection(&dst1, &dst2)) {
+				velocity = (0, 0);
+				return 0;
+			}
+		}
+	}
+	transform.position += delta;
+	return 1;
 }
