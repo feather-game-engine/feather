@@ -1,4 +1,5 @@
 #include "core.h"
+#include "view.h"
 #include "input.h"
 #include "../PROJECT.h"
 #include "vector.h"
@@ -26,6 +27,8 @@ Uint64 currentFrame = 0;
 
 int currentID;
 std::unordered_map<int, Entity*> entityTracker;
+
+View view;
 
 int main(int argc, char **argv){
 	std::cout << "Starting Feather" << std::endl;

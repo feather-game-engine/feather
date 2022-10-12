@@ -2,6 +2,7 @@
 #define ENTITY_H
 #include "core.h"
 #include "transform.h"
+#include "view.h"
 #include <unordered_map>
 
 class Entity {

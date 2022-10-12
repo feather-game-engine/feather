@@ -1,7 +1,6 @@
 #include "vector.h"
 #include <math.h>
 
-
 Vector::Vector(float xVec, float yVec) {
 	x = xVec;
 	y = yVec;

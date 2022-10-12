@@ -11,4 +11,5 @@
 #include "rigidentity.h"
 #include "timer.h"
 #include "tag.h"
+#include "view.h"
 #endif

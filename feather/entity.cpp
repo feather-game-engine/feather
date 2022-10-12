@@ -42,7 +42,7 @@ SDL_Texture* Entity::getSprite() {
 
 int Entity::Draw(){
 	if(active){
-		SDL_Rect dst = { (int)transform.position.x, (int)transform.position.y, (int)transform.scale.x, (int)transform.scale.y };
+		SDL_Rect dst = { (int)transform.position.x - (int)view.position.x, (int)transform.position.y - (int)view.position.y, (int)transform.scale.x, (int)transform.scale.y };
 		SDL_RenderCopyEx(rend, sprite, NULL, &dst, transform.angle, NULL, SDL_FLIP_NONE);
 	}
 	return 0;
