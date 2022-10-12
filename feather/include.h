@@ -10,4 +10,5 @@
 #include "vector.h"
 #include "rigidentity.h"
 #include "timer.h"
+#include "tag.h"
 #endif
