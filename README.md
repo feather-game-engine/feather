@@ -16,7 +16,7 @@ This project uses SDL2/OpenGL for access to input and graphics hardware and SCon
 
 ## Developers
 
-This project is developed by me in my spare time. Feel free to open a PR or make an issue if you wish to contribute! 
+This project is developed by me (Adamek-K) in my spare time. Feel free to open a PR or make an issue if you wish to contribute! 
 
 If you do contribute, you may place your name/username here
 
