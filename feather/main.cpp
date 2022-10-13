@@ -28,8 +28,6 @@ Uint64 currentFrame = 0;
 int currentID;
 std::unordered_map<int, Entity*> entityTracker;
 bool drawHitboxes = false;
-SDL_BlendMode mode = SDL_BLENDMODE_BLEND;
-SDL_BlendMode* alpha = &mode;
 
 View view;
 
