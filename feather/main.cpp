@@ -27,6 +27,9 @@ Uint64 currentFrame = 0;
 
 int currentID;
 std::unordered_map<int, Entity*> entityTracker;
+bool drawHitboxes = false;
+SDL_BlendMode mode = SDL_BLENDMODE_BLEND;
+SDL_BlendMode* alpha = &mode;
 
 View view;
 
@@ -85,7 +88,7 @@ int main(int argc, char **argv){
 		if(event.type == SDL_QUIT){
 			running = false;
 		}
-
+		SDL_SetRenderDrawColor(rend, BG_COLOR[0], BG_COLOR[1], BG_COLOR[2], BG_COLOR[3]);
 		SDL_RenderClear(rend);
 
 		if(!paused){

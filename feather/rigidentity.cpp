@@ -1,7 +1,7 @@
 #include "rigidentity.h"
 #include <math.h>
 
-using namespace std;
+//using namespace std;
 
 int RigidEntity::Update(float deltaTime) {
 	float time = deltaTime;
@@ -27,10 +27,29 @@ RigidEntity* RigidEntity::Clone() {
 RigidEntity* RigidEntity::Clone(Transform t) {
 	RigidEntity *cloneEntity = new RigidEntity;
 	cloneEntity->Create(this->getSprite(), t);
+	cloneEntity->setHitbox(this->hitbox.x, this->hitbox.y, this->hitbox.w, this->hitbox.h);
 	cloneEntity->setClone();
 	return cloneEntity;
 }
 
+int RigidEntity::Draw() {
+	this->Entity::Draw();
+	if (drawHitboxes && this->isActive()) {
+		SDL_SetRenderDrawBlendMode(rend, SDL_BLENDMODE_BLEND);
+		SDL_SetRenderDrawColor(rend, 0, 255, 0, 100);
+		SDL_Rect target = { (int) transform.position.x + hitbox.x,(int) transform.position.y + hitbox.y, hitbox.w, hitbox.h };
+		SDL_RenderFillRect(rend, &target);
+	}
+	return 0;
+}
+
+int RigidEntity::setHitbox(int x, int y, int w, int h) {
+	hitbox.x = x;
+	hitbox.y = y;
+	hitbox.w = w;
+	hitbox.h = h;
+	return 0;
+}
 
 int RigidEntity::addForce(Vector forceVec) {
 	force.x += forceVec.x;
@@ -53,14 +72,14 @@ int RigidEntity::testMove(Vector delta) {
 		if (element.first == Entity::id) continue;
 		if (dynamic_cast<RigidEntity*>(element.second)) {
 			RigidEntity* rigidEntity = dynamic_cast<RigidEntity*>(element.second);
-			SDL_Rect dst1 = { transform.position.x + delta.x, transform.position.y + delta.y, transform.scale.x, transform.scale.y };
-			SDL_Rect dst2 = { rigidEntity->transform.position.x, rigidEntity->transform.position.y, rigidEntity->transform.scale.x, rigidEntity->transform.scale.y };
+			SDL_Rect dst1 = { (int)(transform.position.x + hitbox.x + delta.x), (int)(transform.position.y + hitbox.y + delta.y), hitbox.w, hitbox.h };
+			SDL_Rect dst2 = { (int)rigidEntity->transform.position.x + rigidEntity->hitbox.x, (int)rigidEntity->transform.position.y + rigidEntity->hitbox.y, rigidEntity->hitbox.w, rigidEntity->hitbox.h };
 			if (SDL_HasIntersection(&dst1, &dst2)) {
 				velocity = (0, 0);
-				return 0;
+				return 1;
 			}
 		}
 	}
 	transform.position += delta;
-	return 1;
+	return 0;
 }
