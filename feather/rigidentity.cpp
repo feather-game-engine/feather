@@ -32,17 +32,6 @@ RigidEntity* RigidEntity::Clone(Transform t) {
 	return cloneEntity;
 }
 
-int RigidEntity::Draw() {
-	this->Entity::Draw();
-	if (drawHitboxes && this->isActive()) {
-		SDL_SetRenderDrawBlendMode(rend, SDL_BLENDMODE_BLEND);
-		SDL_SetRenderDrawColor(rend, 0, 255, 0, 100);
-		SDL_Rect target = { (int) transform.position.x + hitbox.x,(int) transform.position.y + hitbox.y, hitbox.w, hitbox.h };
-		SDL_RenderFillRect(rend, &target);
-	}
-	return 0;
-}
-
 int RigidEntity::setHitbox(int x, int y, int w, int h) {
 	hitbox.x = x;
 	hitbox.y = y;

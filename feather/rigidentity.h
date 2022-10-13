@@ -13,7 +13,6 @@ class RigidEntity : public Entity {
 
 		RigidEntity* Clone();
 		RigidEntity* Clone(Transform t);
-		int Draw();
 
 		Vector velocity;
 		Vector acceleration;
