@@ -7,7 +7,6 @@
 
 class RigidEntity : public Entity {
 	private:
-		bool active = false;
 		SDL_Texture *sprite;
 	public:
 		bool rigid = true;
@@ -17,6 +16,9 @@ class RigidEntity : public Entity {
 
 		Vector velocity;
 		Vector acceleration;
+
+		SDL_Rect hitbox;
+		int setHitbox(int x = 0, int y = 0, int w = 1, int h = 1);
 
 		float gravity = -9.8;
 		float mass = 1;

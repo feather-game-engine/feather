@@ -32,6 +32,8 @@ extern double delta;
 
 extern int currentID;
 
+extern bool drawHitboxes;
+
 void Begin();
 void Step();
 void End();

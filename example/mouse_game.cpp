@@ -11,15 +11,18 @@ vector<RigidEntity*> balls;
 Vector offset;
 
 int cash;
+int mainID;
 
 //Runs on first frame
 void Begin() {
+	drawHitboxes = true;
 	Player.Create("assets/player.png", 0, 0, 128, 128);
-	Player.Clone();
 
 	ball.Create("assets/ball.png", 30, 30, 140, 140);
 	ball.gravity = 0;
+	ball.setHitbox(28, 22, 70, 70);
 	balls.push_back(&ball);
+	mainID = ball.id;
 
 
 	for (int i = 0; i < 5; i++) {
@@ -47,6 +50,13 @@ void Step() {
 	for (int i = 0; i < balls.size(); i++) {
 		if (Player.Collided(*balls[i])) {
 			cash++;
+			if (balls[i]->id == mainID) {
+				for (auto b : balls) b->Destroy();
+				balls.clear();
+				Player.Destroy();
+				Begin();
+				return;
+			}
 			balls[i]->Destroy();
 		}
 		if (balls[i]->transform.position.y >= 970) {

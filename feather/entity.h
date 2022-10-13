@@ -25,7 +25,7 @@ class Entity {
 		int swapSprite(const char *spritePath);
 		SDL_Texture* getSprite();
 
-		int Draw();
+		virtual int Draw();
 		int Destroy();
 		virtual int Create(const char *spritePath, int x, int y, int width, int height, double newAngle = 0.0);
 		virtual int Create(const char *spritePath, Vector position, Vector scale, double newAngle = 0.0);

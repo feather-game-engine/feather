@@ -14,6 +14,7 @@ SDL_Event event;
 
 bool paused;
 bool f1;
+bool f2;
 
 Mix_Music *currentMusic;
 
@@ -27,6 +28,7 @@ Uint64 currentFrame = 0;
 
 int currentID;
 std::unordered_map<int, Entity*> entityTracker;
+bool drawHitboxes = false;
 
 View view;
 
@@ -85,7 +87,7 @@ int main(int argc, char **argv){
 		if(event.type == SDL_QUIT){
 			running = false;
 		}
-
+		SDL_SetRenderDrawColor(rend, BG_COLOR[0], BG_COLOR[1], BG_COLOR[2], BG_COLOR[3]);
 		SDL_RenderClear(rend);
 
 		if(!paused){
@@ -94,6 +96,15 @@ int main(int argc, char **argv){
 
 		for(auto element : entityTracker){
 			element.second->Draw();
+			if (f2) {
+				if (drawHitboxes && element.second->isActive() && dynamic_cast<RigidEntity*>(element.second)) {
+					RigidEntity* re = dynamic_cast<RigidEntity*>(element.second);
+					SDL_SetRenderDrawBlendMode(rend, SDL_BLENDMODE_BLEND);
+					SDL_SetRenderDrawColor(rend, 0, 255, 0, 100);
+					SDL_Rect target = { (int)re->transform.position.x + re->hitbox.x,(int)re->transform.position.y + re->hitbox.y, re->hitbox.w, re->hitbox.h };
+					SDL_RenderFillRect(rend, &target);
+				}
+			}
 		}
 
 		if(!paused){
@@ -123,12 +134,21 @@ int main(int argc, char **argv){
 					paused = !paused;
 					f1 = true;
 				}
+				if (event.key.keysym.sym == SDLK_F2 && !f2) {
+					f2 = true;
+					drawHitboxes = true;
+				}
 			}
 			if(event.type == SDL_KEYUP){
 				if(event.key.keysym.sym == SDLK_F1){
 					f1 = false;
 				}
+				if (event.key.keysym.sym == SDLK_F2) {
+					f2 = false;
+					drawHitboxes = false;
+				}
 			}
+
 		}
 
 	}
