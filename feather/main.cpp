@@ -119,8 +119,8 @@ int main(int argc, char **argv){
 					rigidEntity->Update(deltaTime);
 				}
 			}
-			//END PHYSICS
 			lastUpdate = current;
+			//END PHYSICS
 		}
 		SDL_RenderPresent(rend);
 
