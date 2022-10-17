@@ -96,14 +96,12 @@ int main(int argc, char **argv){
 
 		for(auto element : entityTracker){
 			element.second->Draw();
-			if (f2) {
-				if (drawHitboxes && element.second->isActive() && dynamic_cast<RigidEntity*>(element.second)) {
-					RigidEntity* re = dynamic_cast<RigidEntity*>(element.second);
-					SDL_SetRenderDrawBlendMode(rend, SDL_BLENDMODE_BLEND);
-					SDL_SetRenderDrawColor(rend, 0, 255, 0, 100);
-					SDL_Rect target = { (int)re->transform.position.x + re->hitbox.x,(int)re->transform.position.y + re->hitbox.y, re->hitbox.w, re->hitbox.h };
-					SDL_RenderFillRect(rend, &target);
-				}
+			if (drawHitboxes && element.second->isActive() && dynamic_cast<RigidEntity*>(element.second)) {
+				RigidEntity* re = dynamic_cast<RigidEntity*>(element.second);
+				SDL_SetRenderDrawBlendMode(rend, SDL_BLENDMODE_BLEND);
+				SDL_SetRenderDrawColor(rend, 0, 255, 0, 100);
+				SDL_Rect target = { (int)re->transform.position.x + re->hitbox.x,(int)re->transform.position.y + re->hitbox.y, re->hitbox.w, re->hitbox.h };
+				SDL_RenderFillRect(rend, &target);
 			}
 		}
 
@@ -121,7 +119,6 @@ int main(int argc, char **argv){
 					rigidEntity->Update(deltaTime);
 				}
 			}
-
 			lastUpdate = current;
 			//END PHYSICS
 		}
@@ -139,7 +136,7 @@ int main(int argc, char **argv){
 				}
 				if (event.key.keysym.sym == SDLK_F2 && !f2) {
 					f2 = true;
-					drawHitboxes = true;
+					drawHitboxes = !drawHitboxes;
 				}
 			}
 			if(event.type == SDL_KEYUP){
@@ -148,7 +145,6 @@ int main(int argc, char **argv){
 				}
 				if (event.key.keysym.sym == SDLK_F2) {
 					f2 = false;
-					drawHitboxes = false;
 				}
 			}
 
