@@ -15,7 +15,6 @@ int mainID;
 
 //Runs on first frame
 void Begin() {
-	drawHitboxes = true;
 	Player.Create("assets/player.png", 0, 0, 128, 128);
 
 	ball.Create("assets/ball.png", 30, 30, 140, 140);
