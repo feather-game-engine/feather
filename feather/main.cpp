@@ -122,6 +122,10 @@ int main(int argc, char **argv){
 			lastUpdate = current;
 			//END PHYSICS
 		}
+		else {
+			lastUpdate = SDL_GetTicks();
+		}
+
 		SDL_RenderPresent(rend);
 
 		if(DEBUG_MODE){
