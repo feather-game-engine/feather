@@ -6,16 +6,26 @@ Entities can be created via the following functions:
 
 	virtual int Create(const char *spritePath, int x, int y, int width, int height);
 	virtual int Create(const char *spritePath, Vector position, Vector scale);
+	virtual int Create(SDL_Texture* sprite, Transform t);
 
-both of which will take a string to the sprite file in addition to a transform and scale.
+two of which will take a string to the sprite file in addition to a transform and scale.
 Create() will load the image, set the sprite's active boolean to true, set the transform and scale, then assign an id which gets passed to a global entityTracker array
 which is defined in main.cpp. These will return -1 if the sprite is not found.
+The third creates an Entity at the given Transform, given that the sprite already exists. All entities tied to this sprite will no longer be rendered when the sprite is
+destroyed.
+
+Clones are special entities which are dynamically allocated, and can be created via the following functions:
+
+	virtual Entity* Clone();
+	virtual Entity* Clone(Transform t);
+
+The first of which creates a clone at the same location, the second of which takes a Transform. The Clones call Create() using the already created sprite.
 
 To destroy an entity, you can use
 
 	int Destroy();
 
-which will destroy the SDL texture and set the active boolean to false.
+which will destroy the SDL texture and set the active boolean to false. It also checks if the Entity is a clone, in which case the object will be freed.
 
 
 
