@@ -1,0 +1,40 @@
+RigidEntities are a child class of Entities that have physics attributes (collision, forces, etc.)
+
+--Instantiation--
+Refer to Create() method in Entity. Additionally, Clone() is overloaded so RigidEntities can be created directly.
+Refer to Destroy() method in Entity for deconstructing.
+
+
+
+--Members--
+Vector: force, velocity, acceleration
+SDL_Rect: hitBox
+float: gravity, mass
+
+These members are used in calculation for how the transform.position member should be affected following a change in time.
+They are also public, and can be modified as needed.
+
+
+
+--Adding Forces--
+
+    int addForce(Vector force);
+	int addForceX(float x);
+	int addForceY(float Y);
+
+More modifier functions may be added as variables migrate to private/protected territory.
+
+
+
+--Setting the hitbox--
+
+    int setHitbox(int x = 0, int y = 0, int w = 1, int h = 1);
+
+Creates a SDL_Rect, collision is handled by SDL_HasIntersection() which takes this as a parameter.
+
+
+
+--Update--
+Calling Update() takes one parameter, deltaTime, which is handled in main.
+Using this deltaTime, the position is calculated, using the change in position in conjunction with hitBox to first determine
+whether or not a collision will occur (testMove()). If no collision is detected, transform.position is updated accordingly.
