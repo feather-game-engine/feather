@@ -4,7 +4,7 @@
 
 A simple, lightweight, open-source C++ game engine
 
-It currently has full rendering, text, input, sound, and collision systems set up, although it is still in active development, so things may be changed, added, or removed.
+It currently has full rendering, text, input, sound, and physics systems set up, although it is still in active development, so things may be changed, added, or removed.
 
 ## Installing
 
