@@ -14,7 +14,7 @@ To use the Feather Engine, just clone this git repo (it acts as a template). Mak
 
 ## Technology
 
-This project uses SDL2 for access to input and graphics hardware and SCons as a buildsystem. You will need to install SCons yourself through pip, however I am considering shipping scons-local as part of the project.
+This project uses SDL2 for access to input and graphics hardware and cmake as a buildsystem. 
 
 ## Developers
 
@@ -32,7 +32,7 @@ Documentation is available in the docs/ directory. I may also make a tutorial wh
 
 ## Building
 
-The project uses SCons as its buildsystem. Just run scons and it should compile fine. You can install scons through pip if you don't have it.
+The project uses cmake as its buildsystem. Install cmake, cd into the build/ directory, and then run cmake ..
 
 ## Funding & Sponsors
 
