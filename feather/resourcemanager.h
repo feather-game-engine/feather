@@ -24,7 +24,7 @@ public: // Methods and Constructors
 	 * - Creates a TTF_Font* object from path and stores it into memory.
 	 * Returns the id of the loaded TTF_Font for future access.
 	*/
-	unsigned int loadFont(const std::string& path, int pSize);
+	unsigned int loadFont(const std::string& path, int fontSize);
 
 	/**
 	 * getTexture()
