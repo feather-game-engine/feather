@@ -21,6 +21,7 @@ set(SOURCES
     feather/util.cpp
     feather/vector.cpp
     feather/view.cpp
+    feather/resourcemanager.cpp
     game.cpp
 )
 
