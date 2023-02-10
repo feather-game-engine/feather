@@ -7,10 +7,13 @@ project(
 )
 
 set(SOURCES
+    feather/components/component.cpp
+    feather/entities/entity.cpp
     feather/debug.cpp
     feather/entity.cpp
     feather/input.cpp
     feather/main.cpp
+    feather/resourcemanager.cpp
     feather/rigidentity.cpp
     feather/serial.cpp
     feather/sound.cpp
@@ -21,7 +24,6 @@ set(SOURCES
     feather/util.cpp
     feather/vector.cpp
     feather/view.cpp
-    feather/resourcemanager.cpp
     game.cpp
 )
 
