@@ -6,7 +6,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 
-namespace Feather {
+namespace fl {
 
 class ResourceManager {
 public: // Methods and Constructors
@@ -47,6 +47,6 @@ private:
 
 
 	SDL_Renderer* renderer;
-}; // class ResourceHolder
+}; // class ResourceManager
 
-} // namespace Feather
+} // namespace fl

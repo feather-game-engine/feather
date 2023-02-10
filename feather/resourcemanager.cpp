@@ -1,6 +1,6 @@
 #include "resourcemanager.h"
 
-namespace Feather {
+namespace fl {
 ResourceManager::ResourceManager(SDL_Renderer* rend) 
 	: renderer(rend)
 {
@@ -51,4 +51,4 @@ TTF_Font* ResourceManager::getFont(unsigned int id) const {
 	return search->second;
 }
 
-} // namespace Feather
+} // namespace fl
