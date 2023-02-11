@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include "feather/entities/entity.h"
+#include "feather/systems/componentsystem.h"
 
 namespace fl {
 
@@ -24,6 +25,8 @@ public: // METHODS
 private:
 	std::map<unsigned, std::shared_ptr<fl::Entity>> m_entities;
 	std::vector<std::shared_ptr<fl::Entity>> m_newEntities;
+
+	std::vector<std::shared_ptr<fl::ComponentSystem>> m_componentSystems;
 }; // class EntityManager
 
 } // namespace fl
