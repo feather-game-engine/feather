@@ -2,7 +2,7 @@
 
 namespace fl {
 
-// Forward Declaration
+/* Forward Declaration. Every non-virtual subclass of fl::Component should be declared in a file that imports "feather/entities/entity.h"*/
 class Entity;
 
 class Component {
