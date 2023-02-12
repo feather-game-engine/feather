@@ -22,7 +22,7 @@ void Drawable::setSortOrder(unsigned sortOrder) {
 	m_sortOrder = sortOrder;
 }
 
-unsigned Drawable::getDrawLayer() const {
+unsigned Drawable::getSortOrder() const {
 	return m_sortOrder;
 }
 

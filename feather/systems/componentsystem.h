@@ -1,11 +1,13 @@
 #pragma once
 
+#include <memory>
 #include <set>
 
 namespace fl {
 
 // Forward Declaration
 class EntityManager;
+class Entity;
 
 class ComponentSystem {
 public:

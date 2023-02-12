@@ -6,7 +6,7 @@
 
 namespace fl {
 
-class Drawable : public: fl::Component {
+class Drawable : public fl::Component {
 public:
 	Drawable(fl::Entity* owner, unsigned drawLayer = 0, unsigned sortOrder = 0);
 

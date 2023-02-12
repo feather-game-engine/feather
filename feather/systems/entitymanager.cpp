@@ -35,7 +35,7 @@ void EntityManager::processNewObjects() {
 		return;
 	}
 
-	for (const auto& e: m_newEntities) {
+	for (auto& e: m_newEntities) {
 		e->awake();
 
 		const unsigned ID = e->ID;
@@ -54,10 +54,10 @@ void EntityManager::processRemovals() {
 }
 
 std::shared_ptr<fl::Entity>& EntityManager::operator[](unsigned entityID) {
-	if (m_entities.contains(entityID)) {
-		return m_entities.at(entityID);
-	}
-	return nullptr;
+	auto e = m_entities.find(entityID);
+
+	// This should return a pointer to nullptr/m_entities.end if no entityID does not exist as a key.
+	return e->second;
 }
 
 } // namespace fl

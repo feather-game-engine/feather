@@ -17,10 +17,6 @@ void Entity::awake() {
 	}
 }
 
-void Entity::draw() {
-	
-}
-
 bool Entity::isStatic() const {
 	return m_static;
 }

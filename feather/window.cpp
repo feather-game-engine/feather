@@ -1,6 +1,6 @@
 #include "feather/window.h"
 
-namespace fl [
+namespace fl {
 
 Window::Window(const std::string& title, int x, int y, int w, int h, Uint32 flags) {
 	m_window = SDL_CreateWindow(title.c_str(), x, y, w, h, flags);
@@ -29,4 +29,4 @@ void Window::close() {
 	m_window = NULL;
 }
 
-] // namespace fl
+} // namespace fl

@@ -16,7 +16,7 @@ public: // METHODS
 	void add(std::shared_ptr<fl::Entity> entity);
 
 	template <typename T>
-	void includeSystem<T>();
+	void includeSystem();
 
 	void update(float deltaTime);
 	void postUpdate(float deltaTime);
@@ -38,7 +38,7 @@ private:
 
 
 template <typename T>
-void EntityManager::includeSystem<T>() {
+void EntityManager::includeSystem() {
 	static_assert(std::is_base_of<fl::ComponentSystem, T>::value, "Error. EntityManager::includeSystem<T>(). T must be a derived type of fl::ComponentSystem. Assertion returned false.");
 
 	for (auto& existingSystem : m_componentSystems) {
@@ -48,7 +48,7 @@ void EntityManager::includeSystem<T>() {
 	}
 
 	std::shared_ptr<T> newComponentSystem = std::make_shared<T>(this);
-	m_componentSystem.push_back(newComponentSystem);
+	m_componentSystems.push_back(newComponentSystem);
 }
 
 
