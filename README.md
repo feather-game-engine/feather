@@ -25,6 +25,7 @@ If you do contribute, you may place your name/username here
 - formerlybased (aka IAMACAR)
 - BoogeyMan
 - drakemj
+- JavinalCharles
 
 ## Documentation
 
