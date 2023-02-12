@@ -16,14 +16,6 @@ void Component::awake() {
 
 }
 
-void Component::update(float deltaTime) {
-
-}
-
-void Component::postUpdate(float deltaTime) {
-
-}
-
 fl::Entity* Component::getOwner() {
 	return m_owner;
 }

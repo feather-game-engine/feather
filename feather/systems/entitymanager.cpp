@@ -16,11 +16,17 @@ void EntityManager::add(std::shared_ptr<fl::Entity> entity) {
 }
 
 void EntityManager::update(float deltaTime) {
-
+	processNewObjects();
+	for (auto& system : m_componentSystems) {
+		system->update(deltaTime);
+	}
 }
 
 void EntityManager::postUpdate(float deltaTime) {
-
+	for (auto& system : m_componentSystems) {
+		system->postUpdate(deltaTime);
+	}
+	processRemovals();
 }
 
 void EntityManager::processNewObjects() {
@@ -34,6 +40,10 @@ void EntityManager::processNewObjects() {
 
 		const unsigned ID = e->ID;
 		m_entities.insert_or_assign(ID, e);
+
+		for (auto& system: m_componentSystems) {
+			system->addEntity(e);
+		}
 	}
 
 	m_newEntities.clear();
@@ -41,6 +51,13 @@ void EntityManager::processNewObjects() {
 
 void EntityManager::processRemovals() {
 	// TODO
+}
+
+std::shared_ptr<fl::Entity>& EntityManager::operator[](unsigned entityID) {
+	if (m_entities.contains(entityID)) {
+		return m_entities.at(entityID);
+	}
+	return nullptr;
 }
 
 } // namespace fl

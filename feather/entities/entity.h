@@ -3,6 +3,8 @@
 #include <vector>
 #include <memory>
 #include "feather/components/component.h"
+#include "feather/entities/sharedcontext.h"
+
 
 namespace fl {
 
@@ -11,8 +13,9 @@ public: // ATTRIBUTES
 	static unsigned count;
 	const unsigned ID;
 
+	const fl::SharedContext* CONTEXT;
 public: // METHODS & CONSTRUCTORS
-	Entity();
+	Entity(fl::SharedContext* context);
 
 	/**
 	 * awake()
@@ -20,16 +23,11 @@ public: // METHODS & CONSTRUCTORS
 	*/
 	virtual void awake();
 
-	virtual void update(float deltaTime);
-	virtual void postUpdate(float deltaTime);
-	virtual void draw();
-
 	bool isStatic() const;
 	void setStatic(bool isStatic);
 
 	bool isQueuedForRemoval() const;
 	void queueForRemoval(bool remove = true);
-
 
 	/**
 	 * addComponent()

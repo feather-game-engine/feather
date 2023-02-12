@@ -4,8 +4,9 @@ unsigned fl::Entity::count = 0u;
 
 namespace fl {
 
-Entity::Entity()
-	: ID(fl::Entity::count++)
+Entity::Entity(fl::SharedContext* context)
+	: ID(fl::Entity::count++),
+	CONTEXT(context)
 {
 
 }
@@ -13,18 +14,6 @@ Entity::Entity()
 void Entity::awake() {
 	for (const auto& component: m_components) {
 		component->awake();
-	}
-}
-
-void Entity::update(float deltaTime) {
-	for (const auto& component: m_components) {
-		component->update(deltaTime);
-	}
-}
-
-void Entity::postUpdate(float deltaTime) {
-	for (const auto& component: m_components) {
-		component->postUpdate(deltaTime);
 	}
 }
 

@@ -11,8 +11,6 @@ public: // METHODS & CONSTRUCTORS
 	virtual ~Component();
 
 	virtual void awake();
-	virtual void update(float deltaTime);
-	virtual void postUpdate(float deltaTime);
 
 	fl::Entity* getOwner();
 protected: // ATTRIBUTES

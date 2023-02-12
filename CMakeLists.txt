@@ -8,7 +8,11 @@ project(
 
 set(SOURCES
     feather/components/component.cpp
+    feather/components/drawable.cpp
+    feather/components/transform.cpp
     feather/entities/entity.cpp
+    feather/systems/componentsystem.cpp
+    feather/systems/entitymanager.cpp
     feather/debug.cpp
     feather/entity.cpp
     feather/input.cpp
@@ -24,6 +28,7 @@ set(SOURCES
     feather/util.cpp
     feather/vector.cpp
     feather/view.cpp
+    feather/window.cpp
     game.cpp
 )
 

@@ -2,6 +2,12 @@
 
 namespace fl {
 
+ComponentSystem::ComponentSystem(fl::EntityManager* entityManager)
+	: m_entities(entityManager)
+{
+	
+}
+
 void ComponentSystem::update(float deltaTime) {
 
 }

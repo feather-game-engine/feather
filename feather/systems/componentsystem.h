@@ -1,20 +1,26 @@
 #pragma once
 
 #include <set>
-#include "feather/systems/entitymanager.h"
 
 namespace fl {
 
+// Forward Declaration
+class EntityManager;
+
 class ComponentSystem {
 public:
+	ComponentSystem(fl::EntityManager* entityManager);
 
 	virtual void update(float deltaTime);
 	virtual void postUpdate(float deltaTime);
 
-	virtual void add(std::shared_ptr<fl::Entity> entity) = 0;
+	virtual void addEntity(std::shared_ptr<fl::Entity>& entity) = 0;
 
 protected:
 	std::set<unsigned> m_entityIDs;
+
+	// Where the actual entities are stored.
+	fl::EntityManager* m_entities;
 
 }; // class ComponentSystem
 
