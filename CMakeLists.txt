@@ -6,11 +6,20 @@ project(
     LANGUAGES CXX
 )
 
+set (CMAKE_CXX_STANDARD 20)
+
 set(SOURCES
+    feather/components/component.cpp
+    feather/components/drawable.cpp
+    feather/components/transform.cpp
+    feather/entities/entity.cpp
+    feather/systems/componentsystem.cpp
+    feather/systems/entitymanager.cpp
     feather/debug.cpp
     feather/entity.cpp
     feather/input.cpp
     feather/main.cpp
+    feather/resourcemanager.cpp
     feather/rigidentity.cpp
     feather/serial.cpp
     feather/sound.cpp
@@ -21,7 +30,7 @@ set(SOURCES
     feather/util.cpp
     feather/vector.cpp
     feather/view.cpp
-    feather/resourcemanager.cpp
+    feather/window.cpp
     game.cpp
 )
 
@@ -39,7 +48,8 @@ add_executable(game
 
 target_include_directories(game
     PRIVATE
-        ${PROJECT_SOURCE_DIR}/feather
+        ${PROJECT_SOURCE_DIR}/feather/
+        $(PROJECT_SOURCE_DIR)/
 )
 
 target_link_libraries(game

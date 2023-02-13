@@ -3,12 +3,13 @@
 #include "core.h"
 #include "vector.h"
 
-class Transform{
-	public:
-		Vector position;
-		Vector scale;
-		double angle;
-	
+class Transform
+{
+public:
+	Vector position;
+	Vector scale;
+	double angle;
+
 	int Translate(int x, int y);
 	int Translate(Vector direction);
 
