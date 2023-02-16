@@ -18,7 +18,7 @@ public:
 	void setSortOrder(unsigned sortOrder);
 	unsigned getSortOrder() const;
 
-private:
+protected:
 	// Determines at which layer the drawable will be drawn (i.e. Background, Objects, GUI etc.) 
 	unsigned m_drawLayer;
 
