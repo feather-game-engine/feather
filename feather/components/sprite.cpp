@@ -5,7 +5,7 @@ namespace fl {
 
 Sprite::Sprite(fl::Entity* owner, unsigned drawLayer, unsigned sortOrder)
 	: fl::Drawable(owner, drawLayer, sortOrder),
-	m_textureID(0u), // 0 == no texture
+	m_textureID(0u) // 0 == no texture
 {
 
 }
@@ -18,7 +18,7 @@ void Sprite::awake() {
 }
 
 void Sprite::draw(fl::Window& window) {
-
+	window.draw(m_owner->CONTEXT->resources->getTexture(m_textureID), this->getGlobalBounds());
 }
 
 unsigned Sprite::loadTextureFromFile(const std::string& path) {
@@ -32,6 +32,8 @@ unsigned Sprite::loadTextureFromFile(const std::string& path) {
 	// Initial textureRect becomes {0, 0, width, height}; ie. The whole size of the texture.
 	m_textureRect.w = width;
 	m_textureRect.h = height;
+
+	return m_textureID;
 }
 
 void Sprite::setTextureRect(const fl::IntRect& rect) {
@@ -40,6 +42,16 @@ void Sprite::setTextureRect(const fl::IntRect& rect) {
 
 fl::IntRect Sprite::getTextureRect() const {
 	return m_textureRect;
+}
+
+fl::IntRect Sprite::getGlobalBounds() const {
+	auto transform = m_owner->getComponent<fl::Transform>();
+	return fl::IntRect(
+		transform->position.x,
+		transform->position.y,
+		m_textureRect.w,
+		m_textureRect.h	
+	);
 }
 
 } // namespace fl

@@ -14,12 +14,13 @@ public: // static attributes
 	static const Color Yellow;
 	static const Color Magenta;
 	static const Color Cyan;
+	static const Color Transparent;
 
 public: // attributes
-	std::uint8_t r();
-	std::uint8_t g();
-	std::uint8_t b();
-	std::uint8_t a();
+	std::uint8_t r{};
+	std::uint8_t g{};
+	std::uint8_t b{};
+	std::uint8_t a{};
 
 public:
 	constexpr Color();

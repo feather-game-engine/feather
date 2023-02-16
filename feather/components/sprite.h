@@ -4,13 +4,14 @@
 #include <string>
 #include <SDL2/SDL.h>
 #include "feather/components/drawable.h"
+#include "feather/components/transform.h"
 #include "feather/utilities/rect.h"
 
 namespace fl {
 
 class Sprite : public fl::Drawable {
 public:
-	Sprite(fl::Entity* owner, unsigned drawLayer, unsigned sortOrder);
+	Sprite(fl::Entity* owner, unsigned drawLayer = 0, unsigned sortOrder = 0);
 
 	virtual void awake();
 

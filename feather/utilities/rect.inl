@@ -1,4 +1,7 @@
 template <typename T>
+Rect<T>::Rect() = default;
+
+template <typename T>
 Rect<T>::Rect(T left, T top, T width, T height)  :
 	l(left), 
 	t(top), 

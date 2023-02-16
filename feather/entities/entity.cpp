@@ -33,4 +33,8 @@ void Entity::queueForRemoval(bool remove) {
 	m_queuedForRemoval = remove;
 }
 
+std::shared_ptr<fl::Drawable> Entity::getDrawable() const {
+	return m_drawable;
+}
+
 } // namespace fl

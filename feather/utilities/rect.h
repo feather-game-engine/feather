@@ -13,9 +13,10 @@ public: // ATTRIBUTES
 	T h = T(); // height
 
 public: // METHODS & CONSTRUCTORS
+	Rect();
 	Rect(T left, T top, T width, T height);
 	
-	template <typname U>
+	template <typename U>
 	Rect(const Rect<U>& otherRect);
 
 	template <typename U>

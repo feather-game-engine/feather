@@ -3,6 +3,7 @@
 #include <vector>
 #include <memory>
 #include "feather/components/component.h"
+#include "feather/components/drawable.h"
 #include "feather/entities/sharedcontext.h"
 
 
@@ -44,6 +45,8 @@ public: // METHODS & CONSTRUCTORS
 	template<typename T>
 	std::shared_ptr<T> getComponent();
 
+	std::shared_ptr<fl::Drawable> getDrawable() const;
+
 private: // ATTRIBUTES
 	
 	/* Boolean attribute to signal the systems if this entity is subject for destruction.	*/
@@ -52,6 +55,8 @@ private: // ATTRIBUTES
 	// TODO: Pointer to Game Context here.
 
 	std::vector<std::shared_ptr<fl::Component>> m_components;
+
+	std::shared_ptr<fl::Drawable> m_drawable = nullptr;
 
 }; // class Entity
 
@@ -68,6 +73,11 @@ std::shared_ptr<T> Entity::addComponent() {
 	// T does not exist. Create one and store it into memory.
 	std::shared_ptr<T> newComponent = std::make_shared<T>(this);
 	m_components.push_back(newComponent);
+
+	// Checks if the object is also a drawable.
+	if(std::dynamic_pointer_cast<fl::Drawable>(newComponent)) {
+		m_drawable = std::dynamic_pointer_cast<fl::Drawable>(newComponent);
+	}
 
 	return newComponent;
 }

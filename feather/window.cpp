@@ -30,20 +30,23 @@ void Window::close() {
 }
 
 void Window::clear(fl::Color color) {
-	SDL_SetRenderDrawColor( gRenderer, color.r, color.g, color.b, color.a);
+	SDL_SetRenderDrawColor( m_renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderClear(m_renderer);
 }
 
 void Window::draw(SDL_Texture* texture, const fl::IntRect& srcRect, const fl::IntRect& destRect) {
-	SDL_RenderCopy(m_renderer, texture, srcRect.toSDL_Rect(), destRect.toSDL_Rect());
+	SDL_Rect srcSDLRect = srcRect.toSDL_Rect();
+	SDL_Rect dstSDLRect = destRect.toSDL_Rect();
+	SDL_RenderCopy(m_renderer, texture, &srcSDLRect, &dstSDLRect);
 }
 
 void Window::draw(SDL_Texture* texture, const fl::IntRect& destRect) {
-	SDL_RenderCopy(m_renderer, texture, destRect.toSDL_Rect();)
+	SDL_Rect dstSDLRect = destRect.toSDL_Rect();
+	SDL_RenderCopy(m_renderer, texture, NULL ,&dstSDLRect);
 }
 
-void Window::dsiplay() {
-	SDL_RenderPresent(m_renderer);t
+void Window::display() {
+	SDL_RenderPresent(m_renderer);
 }
 
 SDL_Window* Window::getWindow() const {
