@@ -11,27 +11,15 @@ set (CMAKE_CXX_STANDARD 20)
 set(SOURCES
     feather/components/component.cpp
     feather/components/drawable.cpp
+    feather/components/sprite.cpp
     feather/components/transform.cpp
     feather/entities/entity.cpp
     feather/systems/componentsystem.cpp
     feather/systems/entitymanager.cpp
-    feather/debug.cpp
-    feather/entity.cpp
-    feather/input.cpp
     feather/main.cpp
     feather/resourcemanager.cpp
-    feather/rigidentity.cpp
-    feather/serial.cpp
-    feather/sound.cpp
-    feather/tag.cpp
-    feather/text.cpp
-    feather/timer.cpp
-    feather/transform.cpp
-    feather/util.cpp
     feather/vector.cpp
-    feather/view.cpp
     feather/window.cpp
-    game.cpp
 )
 
 find_library(LIB_IMAGE SDL2_image ./lib/Unix/lib_image)

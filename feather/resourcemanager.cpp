@@ -19,7 +19,7 @@ unsigned int ResourceManager::loadTexture(const std::string& path) {
 		throw std::runtime_error(SDL_GetError());
 	}
 	SDL_FreeSurface(loadedSurface);
-	unsigned int id = textureCount++;
+	unsigned int id = ++textureCount;
 	texturesMap.insert_or_assign(id, newTexture);
 	
 	return id;
@@ -31,7 +31,7 @@ unsigned int ResourceManager::loadFont(const std::string& path, int fontSize) {
 		throw std::invalid_argument(TTF_GetError());
 	}
 
-	unsigned int id = fontCount++;
+	unsigned int id = ++fontCount;
 	fontsMap.insert_or_assign(id,  newFont);
 
 	return id;

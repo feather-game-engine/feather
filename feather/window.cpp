@@ -2,7 +2,7 @@
 
 namespace fl {
 
-Window::Window(const std::string& title, int x, int y, int w, int h, Uint32 flags) {
+Window::Window(const std::string& title, int x, int y, int w, int h, std::uint32_t flags) {
 	m_window = SDL_CreateWindow(title.c_str(), x, y, w, h, flags);
 	if (m_window == NULL) {
 		throw std::runtime_error(SDL_GetError());
@@ -27,6 +27,34 @@ void Window::close() {
 	m_open = false;
 	m_renderer = NULL;
 	m_window = NULL;
+}
+
+void Window::clear(fl::Color color) {
+	SDL_SetRenderDrawColor( m_renderer, color.r, color.g, color.b, color.a);
+	SDL_RenderClear(m_renderer);
+}
+
+void Window::draw(SDL_Texture* texture, const fl::IntRect& srcRect, const fl::IntRect& destRect) {
+	SDL_Rect srcSDLRect = srcRect.toSDL_Rect();
+	SDL_Rect dstSDLRect = destRect.toSDL_Rect();
+	SDL_RenderCopy(m_renderer, texture, &srcSDLRect, &dstSDLRect);
+}
+
+void Window::draw(SDL_Texture* texture, const fl::IntRect& destRect) {
+	SDL_Rect dstSDLRect = destRect.toSDL_Rect();
+	SDL_RenderCopy(m_renderer, texture, NULL ,&dstSDLRect);
+}
+
+void Window::display() {
+	SDL_RenderPresent(m_renderer);
+}
+
+SDL_Window* Window::getWindow() const {
+	return m_window;
+}
+
+SDL_Renderer* Window::getRenderer() const {
+	return m_renderer;
 }
 
 } // namespace fl

@@ -29,6 +29,14 @@ void EntityManager::postUpdate(float deltaTime) {
 	processRemovals();
 }
 
+void EntityManager::draw(fl::Window& window) {
+	// TEMPORARY until a dedicated RenderSystem is created.
+	for (unsigned eID : m_drawables) {
+		auto drawable = m_entities[eID]->getDrawable();
+		drawable->draw(window);
+	}
+}
+
 void EntityManager::processNewObjects() {
 	if (m_newEntities.size() <= 0) {
 		// No new objects. terminate function.
@@ -40,6 +48,10 @@ void EntityManager::processNewObjects() {
 
 		const unsigned ID = e->ID;
 		m_entities.insert_or_assign(ID, e);
+
+		if (e->getDrawable() != nullptr) {
+			m_drawables.insert(ID);
+		}
 
 		for (auto& system: m_componentSystems) {
 			system->addEntity(e);

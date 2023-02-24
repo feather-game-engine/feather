@@ -1,10 +1,12 @@
 #pragma once
 
 #include <map>
-#include <vector>
 #include <memory>
+#include <vector>
+#include <set>
 #include "feather/entities/entity.h"
 #include "feather/systems/componentsystem.h"
+#include "feather/window.h"
 
 namespace fl {
 
@@ -21,7 +23,7 @@ public: // METHODS
 	void update(float deltaTime);
 	void postUpdate(float deltaTime);
 
-	// TODO: draw() method after a render system is implemented
+	void draw(fl::Window& window);
 
 	void processNewObjects();
 
@@ -32,6 +34,9 @@ public: // METHODS
 private:
 	std::map<unsigned, std::shared_ptr<fl::Entity>> m_entities;
 	std::vector<std::shared_ptr<fl::Entity>> m_newEntities;
+
+	// TEMPORARY until RenderSystem is created.
+	std::set<unsigned> m_drawables;
 
 	std::vector<std::shared_ptr<fl::ComponentSystem>> m_componentSystems;
 }; // class EntityManager
