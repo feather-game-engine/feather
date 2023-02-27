@@ -1,4 +1,5 @@
 #include "resourcemanager.h"
+#include <stdexcept>
 
 namespace fl {
 ResourceManager::ResourceManager(SDL_Renderer* rend) 
@@ -37,6 +38,26 @@ unsigned int ResourceManager::loadFont(const std::string& path, int fontSize) {
 	return id;
 }
 
+unsigned int ResourceManager::loadSound(const std::string &path, const std::string &format) {
+    Mix_Chunk* newSound;
+
+    if ("wav" == format) {
+        newSound = Mix_LoadWAV(path);
+    }
+    else {
+        throw std::runtime_error("Sound format not supported (yet)");
+    }
+
+    if (NULL == newSound) {
+        throw std::invalid_argument(Mix_GetError());
+    }
+
+    unsigned int id = ++soundCount;
+    soundsMap.insert_or_assign(id, newSound);
+
+    return id;
+}
+
 SDL_Texture* ResourceManager::getTexture(unsigned int id) const {
 	auto search = texturesMap.find(id);
 	if (search == texturesMap.end())
@@ -49,6 +70,13 @@ TTF_Font* ResourceManager::getFont(unsigned int id) const {
 	if (search == fontsMap.end())
 		return NULL;
 	return search->second;
+}
+
+Mix_Chunk* ResourceManager::getSound(unsigned int id) const {
+    auto search = soundsMap.find(id);
+    if (search == fontsMap.end())
+        return NULL;
+    return search->second;
 }
 
 } // namespace fl
