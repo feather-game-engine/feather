@@ -1,3 +1,0 @@
-/home/coolkid/CLionProjects/feather-engine/build/CMakeFiles/rebuild_cache.dir
-/home/coolkid/CLionProjects/feather-engine/build/CMakeFiles/edit_cache.dir
-/home/coolkid/CLionProjects/feather-engine/build/CMakeFiles/game.dir
