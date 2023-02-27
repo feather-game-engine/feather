@@ -31,7 +31,7 @@ public: // Methods and Constructors
      * - Creates a Mix_Chunk* from a path and stores it in memory.
      *   Returns the id of the loaded Mix_Chunk for future access
      */
-    unsigned int loadSound(const std::string& path, const std::string& format);
+    unsigned int loadSound(const std::string& path);
 
 	/**
 	 * getTexture()

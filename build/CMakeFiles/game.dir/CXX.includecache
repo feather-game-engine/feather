@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/coolkid/CLionProjects/feather-engine/feather/resourcemanager.cpp
+resourcemanager.h
+/home/coolkid/CLionProjects/feather-engine/feather/resourcemanager.h
+SDL2/SDL_mixer.h
+-
+stdexcept
+-
+
+/home/coolkid/CLionProjects/feather-engine/feather/resourcemanager.h
+stdexcept
+-
+string
+-
+unordered_map
+-
+SDL2/SDL.h
+-
+SDL2/SDL_image.h
+-
+SDL2/SDL_ttf.h
+-
+SDL2/SDL_mixer.h
+-
+

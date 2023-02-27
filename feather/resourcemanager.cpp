@@ -1,4 +1,5 @@
 #include "resourcemanager.h"
+#include <SDL2/SDL_mixer.h>
 #include <stdexcept>
 
 namespace fl {
@@ -38,15 +39,8 @@ unsigned int ResourceManager::loadFont(const std::string& path, int fontSize) {
 	return id;
 }
 
-unsigned int ResourceManager::loadSound(const std::string &path, const std::string &format) {
-    Mix_Chunk* newSound;
-
-    if ("wav" == format) {
-        newSound = Mix_LoadWAV(path);
-    }
-    else {
-        throw std::runtime_error("Sound format not supported (yet)");
-    }
+unsigned int ResourceManager::loadSound(const std::string &path) {
+    Mix_Chunk* newSound = Mix_LoadWAV(path.c_str());
 
     if (NULL == newSound) {
         throw std::invalid_argument(Mix_GetError());

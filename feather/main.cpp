@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 #include "feather/components/transform.h"
 #include "feather/components/sprite.h"
 #include "feather/entities/entity.h"
@@ -25,12 +26,14 @@ namespace {
 			std::cout << "SDL_ttf cannot be initialized. Caught Error: " << TTF_GetError() << std::endl;
 			return -3;
 		}
+        Mix_Init(MIX_INIT_MP3);
 
 		std::cout << "SDL initialized successfully." << std::endl;
 		return 0;
 	}
 
 	int close() {
+        Mix_Quit();
 		TTF_Quit();
 		IMG_Quit();
 		SDL_Quit();
