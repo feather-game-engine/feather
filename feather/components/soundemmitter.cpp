@@ -9,7 +9,7 @@ namespace fl {
     }
 
     unsigned SoundEmmitter::loadSoundFromFile(const std::string &path) {
-        m_soundID = m_owner->CONTEXT->resources->loadSoundFromFile(path);
+        m_soundID = m_owner->CONTEXT->resources->loadSound(path);
 
         return m_soundID;
     }

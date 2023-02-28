@@ -3,6 +3,7 @@
 #include <string>
 #include <SDL2/SDL_mixer.h>
 #include "feather/components/component.h"
+#include "feather/entities/entity.h"
 
 namespace fl {
 

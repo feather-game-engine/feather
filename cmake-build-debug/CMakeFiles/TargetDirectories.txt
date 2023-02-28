@@ -1,0 +1,3 @@
+/home/coolkid/newgh/feather-engine/cmake-build-debug/CMakeFiles/game.dir
+/home/coolkid/newgh/feather-engine/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/coolkid/newgh/feather-engine/cmake-build-debug/CMakeFiles/rebuild_cache.dir
