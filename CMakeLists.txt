@@ -13,6 +13,7 @@ set(SOURCES
     feather/components/drawable.cpp
     feather/components/sprite.cpp
     feather/components/transform.cpp
+    feather/componenets/soundemmitter.cpp
     feather/entities/entity.cpp
     feather/systems/componentsystem.cpp
     feather/systems/entitymanager.cpp
