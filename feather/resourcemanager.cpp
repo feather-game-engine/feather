@@ -68,7 +68,7 @@ TTF_Font* ResourceManager::getFont(unsigned int id) const {
 
 Mix_Chunk* ResourceManager::getSound(unsigned int id) const {
     auto search = soundsMap.find(id);
-    if (search == fontsMap.end())
+    if (search == soundsMap.end())
         return NULL;
     return search->second;
 }
