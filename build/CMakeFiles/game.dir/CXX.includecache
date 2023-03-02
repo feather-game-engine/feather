@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/coolkid/feather-engine/feather/main.cpp
+iostream
+-
+SDL2/SDL.h
+-
+SDL2/SDL_image.h
+-
+SDL2/SDL_ttf.h
+-
+SDL2/SDL_mixer.h
+-
+feather/components/transform.h
+/home/coolkid/feather-engine/feather/feather/components/transform.h
+feather/components/sprite.h
+/home/coolkid/feather-engine/feather/feather/components/sprite.h
+feather/entities/entity.h
+/home/coolkid/feather-engine/feather/feather/entities/entity.h
+feather/entities/sharedcontext.h
+/home/coolkid/feather-engine/feather/feather/entities/sharedcontext.h
+feather/systems/entitymanager.h
+/home/coolkid/feather-engine/feather/feather/systems/entitymanager.h
+feather/resourcemanager.h
+/home/coolkid/feather-engine/feather/feather/resourcemanager.h
+feather/window.h
+/home/coolkid/feather-engine/feather/feather/window.h
+feather/game.h
+/home/coolkid/feather-engine/feather/feather/game.h
+
