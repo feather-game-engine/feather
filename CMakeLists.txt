@@ -21,6 +21,7 @@ set(SOURCES
     feather/resourcemanager.cpp
     feather/vector.cpp
     feather/window.cpp
+    feather/game.cpp
 )
 
 find_library(LIB_IMAGE SDL2_image ./lib/Unix/lib_image)
