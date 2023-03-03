@@ -66,10 +66,11 @@ void EntityManager::processRemovals() {
 }
 
 std::shared_ptr<fl::Entity>& EntityManager::operator[](unsigned entityID) {
-	auto e = m_entities.find(entityID);
+	if (!m_entities.contains(entityID)) {
+		throw std::out_of_range("No entity exists with such ID: " + entityID);
+	}
 
-	// This should return a pointer to nullptr/m_entities.end if no entityID does not exist as a key.
-	return e->second;
+	return m_entities.at(entityID);
 }
 
 } // namespace fl

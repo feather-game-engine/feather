@@ -6,7 +6,7 @@ project(
     LANGUAGES CXX
 )
 
-set (CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 20)
 
 set(SOURCES
     feather/components/component.cpp
@@ -38,8 +38,7 @@ add_executable(game
 
 target_include_directories(game
     PRIVATE
-        ${PROJECT_SOURCE_DIR}/feather/
-        $(PROJECT_SOURCE_DIR)/
+        ${PROJECT_SOURCE_DIR}/
 )
 
 target_link_libraries(game

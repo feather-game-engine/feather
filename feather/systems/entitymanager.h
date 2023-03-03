@@ -4,6 +4,7 @@
 #include <memory>
 #include <vector>
 #include <set>
+#include <stdexcept>
 #include "feather/entities/entity.h"
 #include "feather/systems/componentsystem.h"
 #include "feather/window.h"
