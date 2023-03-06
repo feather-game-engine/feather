@@ -9,7 +9,7 @@
 #include "feather/entities/sharedcontext.h"
 #include "feather/systems/entitymanager.h"
 #include "feather/resourcemanager.h"
-#include "feather/window.h"
+#include "feather/windows/window.h"
 #include "feather/game.h"
 
 int main(int argc, char* argv[]) {
@@ -20,12 +20,11 @@ int main(int argc, char* argv[]) {
 
 	auto transform = entity->addComponent<fl::Transform>();
 	auto sprite = entity->addComponent<fl::Sprite>();
-	transform->position.x = 64;
-	transform->position.y = 64;
+	transform->setPosition({64, 64});
 
 	sprite->loadTextureFromFile("./player.png");
 
-	game.em->add(entity);
+	game.em.add(entity);
 
 	// START GAME LOOP
 
@@ -34,13 +33,13 @@ int main(int argc, char* argv[]) {
 		SDL_Event e;
 		while (SDL_PollEvent(&e) != 0) {
 			if (e.type == SDL_QUIT) {
-				game.win->close();
+				game.win.close();
 			}
 		}
 
         game.update();
 
-	} while(game.win->isOpen());
+	} while(game.win.isOpen());
 
     game.quit();
 	return 0;

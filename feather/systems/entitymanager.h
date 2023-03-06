@@ -5,14 +5,15 @@
 #include <vector>
 #include <set>
 #include <stdexcept>
-#include "feather/entities/entity.h"
-#include "feather/systems/componentsystem.h"
-#include "feather/window.h"
+#include <feather/entities/entity.h>
+#include <feather/systems/componentsystem.h>
+#include <feather/systems/rendersystem.h>
 
 namespace fl {
 
 class EntityManager {
 public: // METHODS
+	EntityManager();
 	~EntityManager();
 
 	void add(std::vector<std::shared_ptr<fl::Entity>> &otherEntities);
@@ -31,13 +32,13 @@ public: // METHODS
 	void processRemovals();
 
 	std::shared_ptr<fl::Entity>& operator[](unsigned entityID);
+	std::shared_ptr<fl::Entity>& at(unsigned entityID);
 
 private:
 	std::map<unsigned, std::shared_ptr<fl::Entity>> m_entities;
 	std::vector<std::shared_ptr<fl::Entity>> m_newEntities;
 
-	// TEMPORARY until RenderSystem is created.
-	std::set<unsigned> m_drawables;
+	RenderSystem m_drawables;
 
 	std::vector<std::shared_ptr<fl::ComponentSystem>> m_componentSystems;
 }; // class EntityManager

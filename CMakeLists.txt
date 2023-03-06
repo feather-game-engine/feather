@@ -8,19 +8,33 @@ project(
 
 set(CMAKE_CXX_STANDARD 20)
 
+option(DEBUG_ON "Enables DEBUG_MODE macro" ON)
+option(DEBUG_TO_FILE "If DEBUG_MODE is on, outputs stream to file Log.txt" OFF)
+
+if(DEBUG_ON)
+add_compile_definitions(DEBUG_MODE)
+if(DEBUG_TO_FILE)
+add_compile_definitions(LOG_TO_FILE)
+endif()
+endif()
+
+
 set(SOURCES
     feather/components/component.cpp
     feather/components/drawable.cpp
+    feather/components/soundemmitter.cpp
     feather/components/sprite.cpp
     feather/components/transform.cpp
-    feather/components/soundemmitter.cpp
+    feather/debug/debug.cpp
     feather/entities/entity.cpp
     feather/systems/componentsystem.cpp
     feather/systems/entitymanager.cpp
+    feather/systems/rendersystem.cpp
+    feather/windows/view.cpp
+    feather/windows/window.cpp
     feather/main.cpp
     feather/resourcemanager.cpp
     feather/vector.cpp
-    feather/window.cpp
     feather/game.cpp
 )
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "feather/resourcemanager.h"
-#include "feather/window.h"
+#include <feather/resourcemanager.h>
+#include <feather/windows/window.h>
 
 namespace fl {
 

@@ -18,19 +18,19 @@ public:
 	virtual void draw(fl::Window& window);
 
 	unsigned loadTextureFromFile(const std::string& path);
-	void setTextureRect(const fl::IntRect& rect);
-	fl::IntRect getTextureRect() const;
+	void setTextureRect(const fl::FloatRect& rect);
+	fl::FloatRect getTextureRect() const;
 
 	/**
 	 * getGlobalBounds()
 	 * @brief get the bounding rectangle of the entity in relation to the global coordinates after taking into account transformations.
 	 * @return global bounding rectangle of the entity.
 	 * */ 
-	fl::IntRect getGlobalBounds() const;
+	virtual FloatRect getGlobalBounds() const;
 private:
 	unsigned m_textureID;
 
-	fl::IntRect m_textureRect;
+	FloatRect m_textureRect;
 }; // class Sprite
 
 }; // namespace fl

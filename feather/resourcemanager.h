@@ -49,6 +49,9 @@ public: // Methods and Constructors
      */
     Mix_Chunk* getSound(unsigned int id) const;
 
+
+	void setRenderer(SDL_Renderer* rend);
+
 private:
 	std::unordered_map<unsigned int, SDL_Texture*> texturesMap;
 	unsigned int textureCount = 0;

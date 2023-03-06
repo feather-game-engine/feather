@@ -1,8 +1,8 @@
 #pragma once
 
 #include <memory>
-#include "feather/components/component.h"
-#include "feather/window.h"
+#include <feather/components/component.h>
+#include <feather/windows/window.h>
 
 namespace fl {
 
@@ -17,6 +17,8 @@ public:
 
 	void setSortOrder(unsigned sortOrder);
 	unsigned getSortOrder() const;
+
+	virtual FloatRect getGlobalBounds() const = 0;
 
 protected:
 	// Determines at which layer the drawable will be drawn (i.e. Background, Objects, GUI etc.) 

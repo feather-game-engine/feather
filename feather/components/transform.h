@@ -1,25 +1,34 @@
 #pragma once
 
 #include "feather/components/component.h"
-#include "feather/vector.h"
+#include "feather/utilities/vector2.h"
 
 namespace fl {
 
 class Transform : public fl::Component
 {
 public:
-	Vector position;
-	Vector scale;
-	double angle;
-
-public:
 	Transform(fl::Entity* owner);
 
-	Transform& Translate(int x, int y);
-	Transform& Translate(Vector direction);
+	Transform& translate(float x, float y);
+	Transform& translate(Vector2f direction);
 
-	Transform& Scale(int x, int y);
-	Transform& Scale(Vector magnitude);
+	Transform& scale(float x, float y);
+	Transform& scale(Vector2f factor);
+
+	Transform& setPosition(const Vector2f& position);
+	Transform& setOrigin(const Vector2f& origin);
+	Transform& setScale(const Vector2f& magnitude);
+	Transform& setRotation(double angle);
+
+	const Vector2f& getPosition() const;
+	const Vector2f& getScale() const;
+	const Vector2f& getOrigin() const;
+private:
+	Vector2f m_position{0,0};
+	Vector2f m_scale{1,1};
+	Vector2f m_origin{0,0};
+	double m_angle{};
 }; // class Transform
 
 } // namespace fl

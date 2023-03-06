@@ -2,6 +2,12 @@
 
 namespace fl {
 
+EntityManager::EntityManager() :
+	m_drawables(this)
+{
+
+}
+
 EntityManager::~EntityManager() {
 	m_entities.clear();
 	m_newEntities.clear();
@@ -30,11 +36,7 @@ void EntityManager::postUpdate(float deltaTime) {
 }
 
 void EntityManager::draw(fl::Window& window) {
-	// TEMPORARY until a dedicated RenderSystem is created.
-	for (unsigned eID : m_drawables) {
-		auto drawable = m_entities[eID]->getDrawable();
-		drawable->draw(window);
-	}
+	m_drawables.draw(window);
 }
 
 void EntityManager::processNewObjects() {
@@ -49,9 +51,7 @@ void EntityManager::processNewObjects() {
 		const unsigned ID = e->ID;
 		m_entities.insert_or_assign(ID, e);
 
-		if (e->getDrawable() != nullptr) {
-			m_drawables.insert(ID);
-		}
+		m_drawables.add(e);
 
 		for (auto& system: m_componentSystems) {
 			system->addEntity(e);
@@ -62,14 +62,27 @@ void EntityManager::processNewObjects() {
 }
 
 void EntityManager::processRemovals() {
-	// TODO
+	auto iter = m_entities.begin();
+	while(iter != m_entities.end()) {
+		if(iter->second->isQueuedForRemoval()) {
+			m_drawables.remove(iter->first);
+			for(auto& componentSystem : m_componentSystems) {
+				componentSystem->remove(iter->first);
+			}
+
+			iter = m_entities.erase(iter);
+		}
+		else {
+			++iter;
+		}
+	}
 }
 
 std::shared_ptr<fl::Entity>& EntityManager::operator[](unsigned entityID) {
-	if (!m_entities.contains(entityID)) {
-		throw std::out_of_range("No entity exists with such ID: " + entityID);
-	}
+	return m_entities.at(entityID);
+}
 
+std::shared_ptr<fl::Entity>& EntityManager::at(unsigned entityID) {
 	return m_entities.at(entityID);
 }
 
