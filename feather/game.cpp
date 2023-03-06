@@ -26,6 +26,8 @@ Game::Game(const std::string& name) :
     }
 
     std::cout << "SDL initialized successfully." << std::endl;
+     //open audio, temporary solution until proper audio system is created
+     Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 2048);
 
     // actually start the window.
     win.init();

@@ -7,12 +7,12 @@
 
 namespace fl {
 
-class SoundEmmitter : public fl::Component {
+class SoundEmitter : public fl::Component {
 public:
-    SoundEmmitter(fl::Entity* owner);
+    SoundEmitter(fl::Entity* owner);
     
     unsigned loadSoundFromFile(const std::string& path);
-    void playSound();
+    void play();
 private:
     unsigned m_soundID;
 

@@ -5,6 +5,7 @@
 #include <SDL2/SDL_mixer.h>
 #include "feather/components/transform.h"
 #include "feather/components/sprite.h"
+#include "feather/components/soundemitter.h"
 #include "feather/entities/entity.h"
 #include "feather/entities/sharedcontext.h"
 #include "feather/systems/entitymanager.h"
@@ -20,13 +21,17 @@ int main(int argc, char* argv[]) {
 
 	auto transform = entity->addComponent<fl::Transform>();
 	auto sprite = entity->addComponent<fl::Sprite>();
+    auto sfx = entity->addComponent<fl::SoundEmitter>();
 	transform->setPosition({64, 64});
 
 	sprite->loadTextureFromFile("./player.png");
+    sfx->loadSoundFromFile("./song.mp3");
 
 	game.em.add(entity);
 
 	// START GAME LOOP
+
+    sfx->play();
 
     do {
 		// Handle Events

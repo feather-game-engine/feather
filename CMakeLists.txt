@@ -22,7 +22,7 @@ endif()
 set(SOURCES
     feather/components/component.cpp
     feather/components/drawable.cpp
-    feather/components/soundemmitter.cpp
+    feather/components/soundemitter.cpp
     feather/components/sprite.cpp
     feather/components/transform.cpp
     feather/debug/debug.cpp
