@@ -3,7 +3,10 @@
 
 namespace fl {
 
-Game::Game(const std::string& name) {
+Game::Game(const std::string& name) :
+    win(name),
+    rs(NULL)
+{
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         std::cout << "SDL cannot be initialized. Got Error: " << SDL_GetError() << std::endl;
         return;
@@ -24,12 +27,13 @@ Game::Game(const std::string& name) {
 
     std::cout << "SDL initialized successfully." << std::endl;
 
-    fl::Window window(name);
+    // actually start the window.
+    win.init();
+    rs.setRenderer(win.getRenderer());
 
-    fl::ResourceManager resources(window.getRenderer()); 
-
-    win = &window;
-    rs = &resources;
+    context.entities = &em;
+    context.resources = &rs;
+    context.window = &win;
 
     NOW = SDL_GetPerformanceCounter();
 }
@@ -40,15 +44,15 @@ void Game::update() {
 
     deltaTime = static_cast<float>((NOW - LAST)*1000 / static_cast<float>(SDL_GetPerformanceFrequency()));
 
-    em->update(deltaTime);
-    em->postUpdate(deltaTime);
-    win->clear();
-    em->draw(*win);
-    win->display();
+    em.update(deltaTime);
+    em.postUpdate(deltaTime);
+    win.clear();
+    em.draw(win);
+    win.display();
 }
 
 void Game::quit() {
-    win->close();
+    win.close();
     Mix_Quit();
     TTF_Quit();
     IMG_Quit();

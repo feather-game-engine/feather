@@ -9,6 +9,10 @@ ResourceManager::ResourceManager(SDL_Renderer* rend)
 
 }
 
+void ResourceManager::setRenderer(SDL_Renderer* rend) {
+	renderer = rend;
+}
+
 unsigned int ResourceManager::loadTexture(const std::string& path) {
 	SDL_Texture* newTexture = NULL;
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
