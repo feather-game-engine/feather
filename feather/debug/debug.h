@@ -5,7 +5,7 @@
 using stream = std::ofstream;
 #else
 #include <iostream>
-using stream = std::ostream;
+using stream = std::ostream&;
 #endif
 
 namespace fl {
