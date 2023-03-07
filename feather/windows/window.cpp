@@ -5,7 +5,13 @@ namespace fl {
 Window::Window(const std::string& title, int x, int y, int w, int h, std::uint32_t flags) :
 	m_title(title),
 	m_area(x,y,w,h),
-	m_flags(flags)
+	m_flags(flags),
+	m_defaultView({
+		0.f, 0.f,
+		static_cast<float>(w),
+		static_cast<float>(h)
+	}),
+	m_view(m_defaultView)
 {
 
 }
