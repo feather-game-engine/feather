@@ -9,6 +9,7 @@
 #include "feather/systems/entitymanager.h"
 #include "feather/resourcemanager.h"
 #include "feather/entities/sharedcontext.h"
+#include "feather/utilities/color.h"
 
 namespace fl {
   

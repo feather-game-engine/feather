@@ -48,7 +48,7 @@ void Game::update() {
 
     em.update(deltaTime);
     em.postUpdate(deltaTime);
-    win.clear();
+    win.clear(fl::Color::Cyan);
     em.draw(win);
     win.display();
 }
