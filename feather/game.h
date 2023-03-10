@@ -9,12 +9,12 @@
 #include "feather/systems/entitymanager.h"
 #include "feather/resourcemanager.h"
 #include "feather/entities/sharedcontext.h"
+#include "feather/utilities/color.h"
 
 namespace fl {
   
 class Game {
 public:
-
     Game(const std::string& name);
     void update();
     void quit();
@@ -25,9 +25,13 @@ public:
 
 	fl::SharedContext context;
 
+    void changeClearColor(fl::Color c);
+
+private:
     std::uint64_t NOW;
     std::uint64_t LAST;
     float deltaTime;
+    fl::Color clearColor = fl::Color::cyan;
 };
 
 }

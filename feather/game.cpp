@@ -48,7 +48,7 @@ void Game::update() {
 
     em.update(deltaTime);
     em.postUpdate(deltaTime);
-    win.clear();
+    win.clear(fl::Color::Cyan);
     em.draw(win);
     win.display();
 }
@@ -59,6 +59,10 @@ void Game::quit() {
     TTF_Quit();
     IMG_Quit();
     SDL_Quit();
+}
+
+void Game::changeClearColor(fl::Color c) {
+    clearColor = c;
 }
 
 }

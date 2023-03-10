@@ -34,7 +34,6 @@ set(SOURCES
     feather/windows/window.cpp
     feather/main.cpp
     feather/resourcemanager.cpp
-    feather/vector.cpp
     feather/game.cpp
 )
 
