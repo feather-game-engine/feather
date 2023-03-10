@@ -22,14 +22,18 @@ endif()
 set(SOURCES
     feather/components/component.cpp
     feather/components/drawable.cpp
+    feather/components/keyboardcontrol.cpp
     feather/components/soundemitter.cpp
     feather/components/sprite.cpp
     feather/components/transform.cpp
+    feather/components/velocity.cpp
     feather/debug/debug.cpp
     feather/entities/entity.cpp
     feather/systems/componentsystem.cpp
     feather/systems/entitymanager.cpp
     feather/systems/inputmanager.cpp
+    feather/systems/keyboardcontrolsystem.cpp
+    feather/systems/movementsystem.cpp
     feather/systems/rendersystem.cpp
     feather/windows/view.cpp
     feather/windows/window.cpp

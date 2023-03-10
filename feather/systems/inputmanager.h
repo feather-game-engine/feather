@@ -3,7 +3,7 @@
 #include <bitset>
 #include <SDL2/SDL_events.h>
 
-#include <feather/utilities/vector2.hpp>
+#include <feather/utilities/vector2.h>
 
 namespace fl {
 

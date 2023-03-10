@@ -11,7 +11,7 @@ public:
 
 	virtual void update(float deltaTime);
 
-	virtual void add(std::shared_ptr<Entity>& entity);
+	virtual void addEntity(std::shared_ptr<Entity>& entity);
 
 }; // class KeyboardControlSystem
 

@@ -41,7 +41,7 @@ void KeyboardControlSystem::update(float) {
 	}
 }
 
-void KeyboardControlSystem::add(std::shared_ptr<Entity>& entity) {
+void KeyboardControlSystem::addEntity(std::shared_ptr<Entity>& entity) {
 	auto keyboardControl = entity->getComponent<KeyboardControl>();
 	if (keyboardControl != nullptr) {
 		m_entityIDs.insert(entity->ID);
