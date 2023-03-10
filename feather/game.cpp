@@ -61,4 +61,8 @@ void Game::quit() {
     SDL_Quit();
 }
 
+void Game::changeClearColor(fl::Color c) {
+    clearColor = c;
+}
+
 }
