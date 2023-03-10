@@ -19,6 +19,8 @@ public:
 	bool isOpen() const;
 	void close();
 
+	void handleEvents();
+
 	// TODO: OTHER METHODS
 	void clear(fl::Color color = fl::Color::Black);
 

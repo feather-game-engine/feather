@@ -29,6 +29,7 @@ set(SOURCES
     feather/entities/entity.cpp
     feather/systems/componentsystem.cpp
     feather/systems/entitymanager.cpp
+    feather/systems/inputmanager.cpp
     feather/systems/rendersystem.cpp
     feather/windows/view.cpp
     feather/windows/window.cpp

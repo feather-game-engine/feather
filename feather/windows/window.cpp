@@ -40,6 +40,27 @@ void Window::close() {
 	m_window = NULL;
 }
 
+void Window::handleEvents() {
+	SDL_Event e[1];
+	while(SDL_PeepEvents(e, 1, SDL_GETEVENT, SDL_WINDOWEVENT, SDL_WINDOWEVENT) > 0) {
+		switch(e[0].window.event) {
+			case SDL_WINDOWEVENT_FOCUS_LOST:
+				// Pause the game
+				break;
+			case SDL_WINDOWEVENT_FOCUS_GAINED:
+				// Resume the game
+				break;
+			case SDL_WINDOWEVENT_CLOSE:
+				this->close();
+				return; // Terminate function. No need to handle other events.
+		}
+	}
+
+	if(SDL_PeepEvents(e, 1, SDL_GETEVENT, SDL_QUIT, SDL_QUIT) > 0) {
+		this->close();
+	}
+}
+
 void Window::clear(fl::Color color) {
 	SDL_SetRenderDrawColor( m_renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderClear(m_renderer);
