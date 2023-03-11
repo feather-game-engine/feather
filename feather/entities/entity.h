@@ -2,17 +2,17 @@
 
 #include <vector>
 #include <memory>
-#include "feather/components/component.h"
-#include "feather/components/drawable.h"
-#include "feather/entities/sharedcontext.h"
-
+#include <feather/components/component.h>
+#include <feather/components/drawable.h>
+#include <feather/entities/sharedcontext.h>
+#include <feather/utilities/types.h>
 
 namespace fl {
 
 class Entity {
 public: // ATTRIBUTES
-	static unsigned count;
-	const unsigned ID;
+	static IDtype count;
+	const IDtype ID;
 
 	const fl::SharedContext* CONTEXT;
 public: // METHODS & CONSTRUCTORS

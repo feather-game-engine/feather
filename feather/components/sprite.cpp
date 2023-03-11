@@ -36,21 +36,23 @@ unsigned Sprite::loadTextureFromFile(const std::string& path) {
 	return m_textureID;
 }
 
-void Sprite::setTextureRect(const fl::IntRect& rect) {
+void Sprite::setTextureRect(const fl::FloatRect& rect) {
 	m_textureRect = rect;
 }
 
-fl::IntRect Sprite::getTextureRect() const {
+fl::FloatRect Sprite::getTextureRect() const {
 	return m_textureRect;
 }
 
-fl::IntRect Sprite::getGlobalBounds() const {
+fl::FloatRect Sprite::getGlobalBounds() const {
 	auto transform = m_owner->getComponent<fl::Transform>();
-	return fl::IntRect(
-		transform->position.x,
-		transform->position.y,
-		m_textureRect.w,
-		m_textureRect.h	
+	return FloatRect(
+		{
+			transform->getPosition() - transform->getOrigin()
+		},
+		{
+			m_textureRect.w, m_textureRect.h	
+		}
 	);
 }
 

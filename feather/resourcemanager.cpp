@@ -9,6 +9,10 @@ ResourceManager::ResourceManager(SDL_Renderer* rend)
 
 }
 
+void ResourceManager::setRenderer(SDL_Renderer* rend) {
+	renderer = rend;
+}
+
 unsigned int ResourceManager::loadTexture(const std::string& path) {
 	SDL_Texture* newTexture = NULL;
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
@@ -68,7 +72,7 @@ TTF_Font* ResourceManager::getFont(unsigned int id) const {
 
 Mix_Chunk* ResourceManager::getSound(unsigned int id) const {
     auto search = soundsMap.find(id);
-    if (search == fontsMap.end())
+    if (search == soundsMap.end())
         return NULL;
     return search->second;
 }

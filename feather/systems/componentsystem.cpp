@@ -8,12 +8,16 @@ ComponentSystem::ComponentSystem(fl::EntityManager* entityManager)
 	
 }
 
-void ComponentSystem::update(float deltaTime) {
+void ComponentSystem::update(float) {
 
 }
 
-void ComponentSystem::postUpdate(float deltaTime) {
+void ComponentSystem::postUpdate(float) {
 	
+}
+
+void ComponentSystem::remove(unsigned entityID) {
+	m_entityIDs.extract(entityID);
 }
 
 } // namespace fl

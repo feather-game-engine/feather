@@ -17,6 +17,7 @@ public:
 	virtual void postUpdate(float deltaTime);
 
 	virtual void addEntity(std::shared_ptr<fl::Entity>& entity) = 0;
+	virtual void remove(unsigned entityID);
 
 protected:
 	std::set<unsigned> m_entityIDs;

@@ -1,6 +1,8 @@
 #pragma once
 
+#include <optional>
 #include <SDL2/SDL_rect.h>
+#include <feather/utilities/vector2.h>
 
 namespace fl {
 
@@ -13,16 +15,19 @@ public: // ATTRIBUTES
 	T h = T(); // height
 
 public: // METHODS & CONSTRUCTORS
-	Rect();
-	Rect(T left, T top, T width, T height);
-	
+	constexpr Rect();
+	constexpr Rect(T left, T top, T width, T height);
+	constexpr Rect(Vector2<T> topLeft, Vector2<T> size);
 	template <typename U>
-	Rect(const Rect<U>& otherRect);
+	constexpr Rect(const Rect<U>& otherRect);
 
 	template <typename U>
-	Rect<T>& operator=(const Rect<U>& rhs);
+	constexpr Rect<T>& operator=(const Rect<U>& rhs);
 
-	SDL_Rect toSDL_Rect() const;
+	constexpr bool contains(const Vector2<T>& point) const;
+	constexpr std::optional<Rect<T>> intersects(const Rect<T>& rect) const;
+
+	constexpr SDL_Rect toSDL_Rect() const;
 }; // class Rect
 
 
