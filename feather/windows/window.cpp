@@ -5,7 +5,13 @@ namespace fl {
 Window::Window(const std::string& title, int x, int y, int w, int h, std::uint32_t flags) :
 	m_title(title),
 	m_area(x,y,w,h),
-	m_flags(flags)
+	m_flags(flags),
+	m_defaultView({
+		0.f, 0.f,
+		static_cast<float>(w),
+		static_cast<float>(h)
+	}),
+	m_view(m_defaultView)
 {
 
 }
@@ -32,6 +38,27 @@ void Window::close() {
 	m_open = false;
 	m_renderer = NULL;
 	m_window = NULL;
+}
+
+void Window::handleEvents() {
+	SDL_Event e[1];
+	while(SDL_PeepEvents(e, 1, SDL_GETEVENT, SDL_WINDOWEVENT, SDL_WINDOWEVENT) > 0) {
+		switch(e[0].window.event) {
+			case SDL_WINDOWEVENT_FOCUS_LOST:
+				// Pause the game
+				break;
+			case SDL_WINDOWEVENT_FOCUS_GAINED:
+				// Resume the game
+				break;
+			case SDL_WINDOWEVENT_CLOSE:
+				this->close();
+				return; // Terminate function. No need to handle other events.
+		}
+	}
+
+	if(SDL_PeepEvents(e, 1, SDL_GETEVENT, SDL_QUIT, SDL_QUIT) > 0) {
+		this->close();
+	}
 }
 
 void Window::clear(fl::Color color) {

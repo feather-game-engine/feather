@@ -16,12 +16,14 @@ namespace fl {
 class Game {
 public:
     Game(const std::string& name);
+    void handleEvents();
     void update();
     void quit();
 
     fl::Window win;
     fl::EntityManager em;
     fl::ResourceManager rs;
+    fl::InputManager im;
 
 	fl::SharedContext context;
 
@@ -31,7 +33,7 @@ private:
     std::uint64_t NOW;
     std::uint64_t LAST;
     float deltaTime;
-    fl::Color clearColor = fl::Color::cyan;
+    fl::Color clearColor = fl::Color::Cyan;
 };
 
 }

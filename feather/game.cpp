@@ -36,8 +36,15 @@ Game::Game(const std::string& name) :
     context.entities = &em;
     context.resources = &rs;
     context.window = &win;
+    context.inputs = &im;
 
     NOW = SDL_GetPerformanceCounter();
+}
+
+void Game::handleEvents() {
+    SDL_PumpEvents();
+    win.handleEvents();
+    im.handleEvents();
 }
 
 void Game::update() {

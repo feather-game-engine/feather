@@ -3,15 +3,19 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
-#include "feather/components/transform.h"
-#include "feather/components/sprite.h"
-#include "feather/components/soundemitter.h"
-#include "feather/entities/entity.h"
-#include "feather/entities/sharedcontext.h"
-#include "feather/systems/entitymanager.h"
-#include "feather/resourcemanager.h"
-#include "feather/windows/window.h"
-#include "feather/game.h"
+#include <feather/components/keyboardcontrol.h>
+#include <feather/components/transform.h>
+#include <feather/components/sprite.h>
+#include <feather/components/soundemitter.h>
+#include <feather/components/velocity.h>
+#include <feather/entities/entity.h>
+#include <feather/entities/sharedcontext.h>
+#include <feather/systems/entitymanager.h>
+#include <feather/systems/keyboardcontrolsystem.h>
+#include <feather/systems/movementsystem.h>
+#include <feather/resourcemanager.h>
+#include <feather/windows/window.h>
+#include <feather/game.h>
 
 int main(int argc, char* argv[]) {
 
@@ -25,7 +29,31 @@ int main(int argc, char* argv[]) {
 	transform->setPosition({64, 64});
 
 	sprite->loadTextureFromFile("./player.png");
-    sfx->loadSoundFromFile("./song.mp3");
+    sfx->loadSoundFromFile("./track02.wav");
+
+	auto v = entity->addComponent<fl::Velocity>();
+	auto kc = entity->addComponent<fl::KeyboardControl>();
+
+	kc->bindOnKeyReleased(SDLK_w, std::bind([v](){
+		v->setY(-32.f);
+	}));
+
+	kc->bindOnKeyReleased(SDLK_s, std::bind([v](){
+		v->setY(32.f);
+	}));
+
+	kc->bindOnKeyReleased(SDLK_a, std::bind([v](){
+		v->setX(-32.f);
+	}));
+
+	kc->bindOnKeyReleased(SDLK_d, std::bind([v](){
+		v->setX(32.f);
+	}));
+
+
+	game.em.includeSystem<fl::KeyboardControlSystem>();
+	game.em.includeSystem<fl::MovementSystem>();
+	
 
 	game.em.add(entity);
 
@@ -34,16 +62,8 @@ int main(int argc, char* argv[]) {
     sfx->play();
 
     do {
-		// Handle Events
-		SDL_Event e;
-		while (SDL_PollEvent(&e) != 0) {
-			if (e.type == SDL_QUIT) {
-				game.win.close();
-			}
-		}
-
-        game.update();
-
+		game.update();
+		game.handleEvents();
 	} while(game.win.isOpen());
 
     game.quit();
