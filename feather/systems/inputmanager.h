@@ -11,9 +11,9 @@ class InputManager {
 public:
 	void handleEvents();
 
-	bool isKeyUp(SDL_KeyCode key);
-	bool isKeyDown(SDL_KeyCode key);
-	bool isKeyHeld(SDL_KeyCode key);
+	bool isKeyUp(SDL_Keycode key);
+	bool isKeyDown(SDL_Keycode key);
+	bool isKeyActive(SDL_Keycode key);
 
 	Vector2i getMousePos() const;
 private:

@@ -9,7 +9,7 @@ KeyboardControl::KeyboardControl(Entity* owner) :
 
 }
 
-void KeyboardControl::bindOnKeyHeld(SDL_KeyCode key, KeyAction action) {
+void KeyboardControl::bindOnKeyActive(SDL_Keycode key, KeyAction action) {
 	if(m_keyHeldActions.contains(key)) {
 		m_keyHeldActions.at(key).push_back(action);
 	}
@@ -18,7 +18,7 @@ void KeyboardControl::bindOnKeyHeld(SDL_KeyCode key, KeyAction action) {
 	}
 }
 
-void KeyboardControl::bindOnKeyReleased(SDL_KeyCode key, KeyAction action) {
+void KeyboardControl::bindOnKeyReleased(SDL_Keycode key, KeyAction action) {
 	if (m_keyReleasedActions.contains(key)) {
 		m_keyReleasedActions.at(key).push_back(action);
 	}
@@ -27,7 +27,7 @@ void KeyboardControl::bindOnKeyReleased(SDL_KeyCode key, KeyAction action) {
 	}
 }
 
-void KeyboardControl::bindOnKeyPressed(SDL_KeyCode key, KeyAction action) {
+void KeyboardControl::bindOnKeyPressed(SDL_Keycode key, KeyAction action) {
 	if (m_keyPressedActions.contains(key)) {
 		m_keyPressedActions.at(key).push_back(action);
 	}

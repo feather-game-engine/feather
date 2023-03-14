@@ -32,7 +32,7 @@ void KeyboardControlSystem::update(float) {
 		}
 		auto& keyHeldBindings = kcs->getBindingsOnKeyHeld();
 		for(auto& [key, actions] : keyHeldBindings) {
-			if(e->CONTEXT->inputs->isKeyHeld(key)) {
+			if(e->CONTEXT->inputs->isKeyActive(key)) {
 				for(auto& action: actions) {
 					action();
 				}
