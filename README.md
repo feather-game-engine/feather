@@ -10,11 +10,7 @@ It currently has full rendering, text, input, sound, and physics systems set up,
 
 ## Installing
 
-To use the Feather Engine, just clone this git repo (it acts as a template). Make sure you remove this README file. From there, just start editing *game.cpp* and *PROJECT.h*. Have Fun, and if you make something cool, send it to **kadamlita@proton.me** to have it featured here.
-
-## Technology
-
-This project uses SDL2 for access to input and graphics hardware and cmake as a buildsystem. 
+To use the Feather Engine, WIP
 
 ## Developers
 
@@ -35,10 +31,6 @@ Documentation is available in the docs/ directory. I may also make a tutorial wh
 
 The project uses cmake as its buildsystem. Install cmake, cd into the build/ directory, and then run cmake ..
 
-## Funding & Sponsors
-
-If you wish to contribute to the development of feather but have no programming experience, you can contribute to the project by donating. [donation link will go here]. If you do donate or support the project, you will be considered a sponsor and your name will be listed below. Thanks in advance!
-
 ## Shipping a game
 
 Shipping a game is still a WIP.
@@ -51,29 +43,14 @@ As features are introduced and planned, they will appear here. Not all features 
 - Game compiling system (a way to actually ship games)
 - Levels (like scenes in other engines)
 - Entity grouping
-- A view (camera) system
-- A more modular design, and support for external modules
 - A timing system
-- More options in PROJECT.h
 - Window resizing (game scales with it) & fullscreen windows
 - Simple serialization (saving & loading funcs)
-- Textbox Input
-- Better structure for projects (easier to work with more than one file)
-- Automatic assets/ injection into asset paths. (type "player.png" instead of "assets/player.png")
 - Simple GUI, or at least some small helper utilities
 - More advanced input (key release and key press functions, as well as support for more keys)
 - Higher quality documentation & documentation translations
-- Different sizes of text and custom font loading
 - More advanced debugging inside the engine, such as returning an error when a sound is not found (similar to what is done for images currently). A debug mode (with a gui!) is currently being worked on.
 - Finished documentation
 - Updating the example project to showcase all features.
 
 If you want to suggest a feature, open an issue.
-
-## Known Bugs
-
-These are bugs, both major and minor, that I am aware of and working on fixing. This could be another good place to get started if you are looking to contribute.
-
-- playSound() may not work, depending on your platform.
-- Crash() fails to produce any color on Windows.
-- Collision on RigidEntities is a little bit wonky.
