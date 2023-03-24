@@ -37,6 +37,7 @@ public:
 
 	void setView(const View& view);
 
+
 private: // Attributes
 	SDL_Window* m_window;
 	SDL_Renderer* m_renderer;

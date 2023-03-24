@@ -47,6 +47,12 @@ public: // METHODS & CONSTRUCTORS
 
 	std::shared_ptr<fl::Drawable> getDrawable() const;
 
+    /* Labelling an entity */
+    std::string addLabel(std::string label);
+
+    bool hasLabel(std::string label);
+
+
 private: // ATTRIBUTES
 	
 	/* Boolean attribute to signal the systems if this entity is subject for destruction.	*/
@@ -57,6 +63,8 @@ private: // ATTRIBUTES
 	std::vector<std::shared_ptr<fl::Component>> m_components;
 
 	std::shared_ptr<fl::Drawable> m_drawable = nullptr;
+
+    std::vector<std::string> m_labels;
 
 }; // class Entity
 

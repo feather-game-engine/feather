@@ -50,6 +50,12 @@ void Window::handleEvents() {
 			case SDL_WINDOWEVENT_FOCUS_GAINED:
 				// Resume the game
 				break;
+            case SDL_WINDOWEVENT_SIZE_CHANGED:
+                // Handle window resizes
+                m_area.w = e[0].window.data1;
+                m_area.h = e[0].window.data2;
+                display();
+                break;
 			case SDL_WINDOWEVENT_CLOSE:
 				this->close();
 				return; // Terminate function. No need to handle other events.

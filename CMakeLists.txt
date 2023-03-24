@@ -27,6 +27,7 @@ set(SOURCES
     feather/components/sprite.cpp
     feather/components/transform.cpp
     feather/components/velocity.cpp
+    feather/components/collider.cpp
     feather/debug/debug.cpp
     feather/entities/entity.cpp
     feather/systems/componentsystem.cpp
@@ -35,6 +36,7 @@ set(SOURCES
     feather/systems/keyboardcontrolsystem.cpp
     feather/systems/movementsystem.cpp
     feather/systems/rendersystem.cpp
+    feather/systems/collisionsystem.cpp
     feather/windows/view.cpp
     feather/windows/window.cpp
     feather/main.cpp

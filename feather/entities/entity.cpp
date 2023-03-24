@@ -37,4 +37,18 @@ std::shared_ptr<fl::Drawable> Entity::getDrawable() const {
 	return m_drawable;
 }
 
+std::string Entity::addLabel(std::string label) {
+    m_labels.push_back(label);
+    return label;
+}
+
+bool Entity::hasLabel(std::string label) {
+    for(auto l : m_labels) {
+        if(l == label) {
+            return true;
+        }
+    }
+    return false;
+}
+
 } // namespace fl

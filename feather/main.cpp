@@ -8,11 +8,13 @@
 #include <feather/components/sprite.h>
 #include <feather/components/soundemitter.h>
 #include <feather/components/velocity.h>
+#include <feather/components/collider.h>
 #include <feather/entities/entity.h>
 #include <feather/entities/sharedcontext.h>
 #include <feather/systems/entitymanager.h>
 #include <feather/systems/keyboardcontrolsystem.h>
 #include <feather/systems/movementsystem.h>
+#include <feather/systems/collisionsystem.h>
 #include <feather/resourcemanager.h>
 #include <feather/windows/window.h>
 #include <feather/game.h>
@@ -30,6 +32,9 @@ int main(int argc, char* argv[]) {
 
 	sprite->loadTextureFromFile("./player.png");
     sfx->loadSoundFromFile("./track02.wav");
+
+    auto hitbox = entity->addComponent<fl::Collider>();
+    hitbox->setHitbox(64, 64);
 
 	auto v = entity->addComponent<fl::Velocity>();
 	auto kc = entity->addComponent<fl::KeyboardControl>();
@@ -51,11 +56,24 @@ int main(int argc, char* argv[]) {
 	}));
 
 
+	std::shared_ptr<fl::Entity> enemy = std::make_shared<fl::Entity>(&game.context);
+	auto transform_enemy = enemy->addComponent<fl::Transform>();
+	auto sprite_enemy = enemy->addComponent<fl::Sprite>();
+	transform_enemy->setPosition({256, 64});
+
+	sprite_enemy->loadTextureFromFile("./enemy.png");
+
+    auto hitbox_enemy = enemy->addComponent<fl::Collider>();
+    hitbox_enemy->setHitbox(64, 64);
+
+
 	game.em.includeSystem<fl::KeyboardControlSystem>();
 	game.em.includeSystem<fl::MovementSystem>();
+    game.em.includeSystem<fl::CollisionSystem>();
 	
 
 	game.em.add(entity);
+	game.em.add(enemy);
 
 	// START GAME LOOP
 
@@ -64,6 +82,9 @@ int main(int argc, char* argv[]) {
     do {
 		game.update();
 		game.handleEvents();
+        if(hitbox->isColliding()) {
+            entity->queueForRemoval();
+        }
 	} while(game.win.isOpen());
 
     game.quit();
