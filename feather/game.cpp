@@ -37,8 +37,34 @@ Game::Game(const std::string& name) :
     context.resources = &rs;
     context.window = &win;
     context.inputs = &im;
+}
 
-    NOW = SDL_GetPerformanceCounter();
+void Game::loop() {
+    const float msPerFrame = 1000.f / m_fps;
+
+    std::uint64_t NOW = SDL_GetTicks64();
+    std::uint64_t PREV = 0;
+    std::uint64_t elapsedTime = 0;
+    float deltaTime = 0;
+
+    do {
+        PREV = NOW;
+        NOW = SDL_GetTicks64();
+        elapsedTime = NOW - PREV;
+        while(elapsedTime < msPerFrame) {
+            NOW = SDL_GetTicks64();
+            elapsedTime = NOW - PREV;
+        }
+        deltaTime = elapsedTime / 1000.f;
+
+        this->handleEvents();
+        if(win.isOpen()) {
+            this->update(deltaTime);
+            this->postUpdate(deltaTime);
+            this->draw();
+        }
+    
+    } while(win.isOpen());
 }
 
 void Game::handleEvents() {
@@ -47,21 +73,22 @@ void Game::handleEvents() {
     im.handleEvents();
 }
 
-void Game::update() {
-    LAST = NOW;
-    NOW = SDL_GetPerformanceCounter();
 
-    deltaTime = static_cast<float>((NOW - LAST)*1000 / static_cast<float>(SDL_GetPerformanceFrequency()));
-
+void Game::update(float deltaTime) {
     em.update(deltaTime);
+}
+
+void Game::postUpdate(float deltaTime) {
     em.postUpdate(deltaTime);
-    win.clear(fl::Color::Cyan);
+}
+
+void Game::draw() {
+    win.clear(m_clearColor);
     em.draw(win);
     win.display();
 }
 
 void Game::quit() {
-    win.close();
     Mix_Quit();
     TTF_Quit();
     IMG_Quit();
@@ -69,7 +96,7 @@ void Game::quit() {
 }
 
 void Game::changeClearColor(fl::Color c) {
-    clearColor = c;
+    m_clearColor = c;
 }
 
 }

@@ -40,31 +40,31 @@ int main(int argc, char* argv[]) {
 	auto kc = entity->addComponent<fl::KeyboardControl>();
 
 	kc->bindOnKeyReleased(SDLK_w, std::bind([v](){
-		v->setY(-32.f);
+		v->setY(-248);
 	}));
 
 	kc->bindOnKeyReleased(SDLK_s, std::bind([v](){
-		v->setY(32.f);
+		v->setY(248);
 	}));
 
 	kc->bindOnKeyReleased(SDLK_a, std::bind([v](){
-		v->setX(-32.f);
+		v->setX(-248);
 	}));
 
 	kc->bindOnKeyReleased(SDLK_d, std::bind([v](){
-		v->setX(32.f);
+		v->setX(248);
 	}));
 
 
-	std::shared_ptr<fl::Entity> enemy = std::make_shared<fl::Entity>(&game.context);
-	auto transform_enemy = enemy->addComponent<fl::Transform>();
-	auto sprite_enemy = enemy->addComponent<fl::Sprite>();
-	transform_enemy->setPosition({256, 64});
+	// std::shared_ptr<fl::Entity> enemy = std::make_shared<fl::Entity>(&game.context);
+	// auto transform_enemy = enemy->addComponent<fl::Transform>();
+	// auto sprite_enemy = enemy->addComponent<fl::Sprite>();
+	// transform_enemy->setPosition({256, 64});
 
-	sprite_enemy->loadTextureFromFile("./enemy.png");
+	// sprite_enemy->loadTextureFromFile("./enemy.png");
 
-    auto hitbox_enemy = enemy->addComponent<fl::Collider>();
-    hitbox_enemy->setHitbox(64, 64);
+    // auto hitbox_enemy = enemy->addComponent<fl::Collider>();
+    // hitbox_enemy->setHitbox(64, 64);
 
 
 	game.em.includeSystem<fl::KeyboardControlSystem>();
@@ -73,19 +73,13 @@ int main(int argc, char* argv[]) {
 	
 
 	game.em.add(entity);
-	game.em.add(enemy);
+	// game.em.add(enemy);
 
 	// START GAME LOOP
 
     sfx->play();
 
-    do {
-		game.update();
-		game.handleEvents();
-        if(hitbox->isColliding()) {
-            entity->queueForRemoval();
-        }
-	} while(game.win.isOpen());
+    game.loop();
 
     game.quit();
 	return 0;
