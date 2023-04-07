@@ -39,19 +39,19 @@ int main(int argc, char* argv[]) {
 	auto v = entity->addComponent<fl::Velocity>();
 	auto kc = entity->addComponent<fl::KeyboardControl>();
 
-	kc->bindOnKeyReleased(SDLK_w, std::bind([v](){
+	kc->bindOnKeyActive(SDLK_w, std::bind([v](){
 		v->setY(-248);
 	}));
 
-	kc->bindOnKeyReleased(SDLK_s, std::bind([v](){
+	kc->bindOnKeyActive(SDLK_s, std::bind([v](){
 		v->setY(248);
 	}));
 
-	kc->bindOnKeyReleased(SDLK_a, std::bind([v](){
+	kc->bindOnKeyActive(SDLK_a, std::bind([v](){
 		v->setX(-248);
 	}));
 
-	kc->bindOnKeyReleased(SDLK_d, std::bind([v](){
+	kc->bindOnKeyActive(SDLK_d, std::bind([v](){
 		v->setX(248);
 	}));
 
