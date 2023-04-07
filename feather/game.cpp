@@ -40,22 +40,22 @@ Game::Game(const std::string& name) :
 }
 
 void Game::loop() {
-    const float msPerFrame = 1000.f / m_fps;
+    const float countPerSecond = SDL_GetPerformanceFrequency();
+    const float timePerFrame = countPerSecond / m_fps;
 
-    std::uint64_t NOW = SDL_GetTicks64();
+    std::uint64_t NOW = SDL_GetPerformanceCounter();
     std::uint64_t PREV = 0;
     std::uint64_t elapsedTime = 0;
-    float deltaTime = 0;
 
     do {
         PREV = NOW;
-        NOW = SDL_GetTicks64();
+        NOW = SDL_GetPerformanceCounter();
         elapsedTime = NOW - PREV;
-        while(elapsedTime < msPerFrame) {
-            NOW = SDL_GetTicks64();
+        while(elapsedTime < timePerFrame) {
+            NOW = SDL_GetPerformanceCounter();
             elapsedTime = NOW - PREV;
         }
-        deltaTime = elapsedTime / 1000.f;
+        float deltaTime = elapsedTime / static_cast<float>(countPerSecond);
 
         this->handleEvents();
         if(win.isOpen()) {
