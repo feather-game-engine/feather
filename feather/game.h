@@ -16,10 +16,19 @@ namespace fl {
 class Game {
 public:
     Game(const std::string& name);
-    void handleEvents();
-    void update();
-    void quit();
 
+    void loop();
+
+    void setFrameRateLimit(float fps);
+    void changeClearColor(fl::Color c);
+    void quit();
+protected:
+    void handleEvents();
+    void update(float deltaTime);
+    void postUpdate(float deltaTime);
+    void draw();
+
+public:
     fl::Window win;
     fl::EntityManager em;
     fl::ResourceManager rs;
@@ -27,13 +36,11 @@ public:
 
 	fl::SharedContext context;
 
-    void changeClearColor(fl::Color c);
+    
 
 private:
-    std::uint64_t NOW;
-    std::uint64_t LAST;
-    float deltaTime;
-    fl::Color clearColor = fl::Color::Cyan;
+    float m_fps{60.f};
+    fl::Color m_clearColor = fl::Color::Cyan;
 };
 
 }
