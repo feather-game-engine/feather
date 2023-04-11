@@ -20,28 +20,28 @@ endif()
 
 
 set(SOURCES
-    feather/components/component.cpp
-    feather/components/drawable.cpp
-    feather/components/keyboardcontrol.cpp
-    feather/components/soundemitter.cpp
-    feather/components/sprite.cpp
-    feather/components/transform.cpp
-    feather/components/velocity.cpp
-    feather/components/collider.cpp
-    feather/debug/debug.cpp
-    feather/entities/entity.cpp
-    feather/systems/componentsystem.cpp
-    feather/systems/entitymanager.cpp
-    feather/systems/inputmanager.cpp
-    feather/systems/keyboardcontrolsystem.cpp
-    feather/systems/movementsystem.cpp
-    feather/systems/rendersystem.cpp
-    feather/systems/collisionsystem.cpp
-    feather/windows/view.cpp
-    feather/windows/window.cpp
-    feather/main.cpp
-    feather/resourcemanager.cpp
-    feather/game.cpp
+    Feather/Components/Component.cpp
+    Feather/Components/Drawable.cpp
+    Feather/Components/KeyboardControl.cpp
+    Feather/Components/SoundEmitter.cpp
+    Feather/Components/Sprite.cpp
+    Feather/Components/Transform.cpp
+    Feather/Components/Velocity.cpp
+    Feather/Components/Collider.cpp
+    Feather/Debug/Debug.cpp
+    Feather/Entities/Entity.cpp
+    Feather/Systems/ComponentSystem.cpp
+    Feather/Systems/EntityManager.cpp
+    Feather/Systems/InputManager.cpp
+    Feather/Systems/KeyboardControlSystem.cpp
+    Feather/Systems/MovementSystem.cpp
+    Feather/Systems/RenderSystem.cpp
+    Feather/Systems/CollisionSystem.cpp
+    Feather/Windows/View.cpp
+    Feather/Windows/Window.cpp
+    Feather/Main.cpp
+    Feather/ResourceManager.cpp
+    Feather/Game.cpp
 )
 
 find_library(LIB_IMAGE SDL2_image ./lib/Unix/lib_image)
