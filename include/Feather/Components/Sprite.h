@@ -6,6 +6,7 @@
 #include "Feather/Components/Drawable.h"
 #include "Feather/Components/Transform.h"
 #include "Feather/Utilities/Rect.h"
+#include "Feather/Utilities/Types.h"
 
 namespace fl {
 
@@ -18,9 +19,13 @@ public:
 	virtual void draw(fl::Window& window);
 
 	unsigned loadTextureFromFile(const std::string& path);
-	void setTextureRect(const fl::FloatRect& rect);
-	fl::FloatRect getTextureRect() const;
 
+	void setTexture(IDtype textureID);
+	void setTexture(IDtype textureID, const IntRect& rect);
+	void setTextureRect(const fl::IntRect& rect);
+	fl::IntRect getTextureRect() const;
+
+	bool hasTexture() const;
 	/**
 	 * getGlobalBounds()
 	 * @brief get the bounding rectangle of the entity in relation to the global coordinates after taking into account transformations.
@@ -30,7 +35,7 @@ public:
 private:
 	unsigned m_textureID;
 
-	FloatRect m_textureRect;
+	IntRect m_textureRect;
 }; // class Sprite
 
 }; // namespace fl

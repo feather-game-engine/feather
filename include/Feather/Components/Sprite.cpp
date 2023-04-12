@@ -36,11 +36,35 @@ unsigned Sprite::loadTextureFromFile(const std::string& path) {
 	return m_textureID;
 }
 
-void Sprite::setTextureRect(const fl::FloatRect& rect) {
+void Sprite::setTexture(IDtype textureID) {
+	SDL_Texture* textureObj = getOwner()->CONTEXT->resources->getTexture(textureID);
+	if(textureObj == nullptr)
+		throw std::invalid_argument("Invalid. Non-existent texture ID given,");
+	m_textureID = textureID;
+
+	m_textureRect.l = 0;
+	m_textureRect.t = 0;
+	SDL_QueryTexture(textureObj, NULL, NULL, &m_textureRect.w, &m_textureRect.h);
+}
+
+void Sprite::setTexture(IDtype textureID, const IntRect& rect) {
+	SDL_Texture* textureObj = getOwner()->CONTEXT->resources->getTexture(textureID);
+	if(textureObj == nullptr)
+		throw std::invalid_argument("Invalid. Non-existent texture ID given,");
+	m_textureID = textureID;
+
 	m_textureRect = rect;
 }
 
-fl::FloatRect Sprite::getTextureRect() const {
+void Sprite::setTextureRect(const fl::IntRect& rect) {
+	m_textureRect = rect;
+}
+
+bool Sprite::hasTexture() const {
+	return m_textureID > 0;
+}
+
+fl::IntRect Sprite::getTextureRect() const {
 	return m_textureRect;
 }
 
@@ -51,7 +75,8 @@ fl::FloatRect Sprite::getGlobalBounds() const {
 			transform->getPosition() - transform->getOrigin()
 		},
 		{
-			m_textureRect.w, m_textureRect.h	
+			static_cast<float>(m_textureRect.w), 
+			static_cast<float>(m_textureRect.h)	
 		}
 	);
 }

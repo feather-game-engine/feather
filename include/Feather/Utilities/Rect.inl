@@ -100,9 +100,9 @@ constexpr std::optional<Rect<T>> Rect<T>::intersects(const Rect<T>& rect) const 
 template <typename T>
 constexpr SDL_Rect Rect<T>::toSDL_Rect() const {
 	return SDL_Rect{
-		static_cast<int>(l), 
-		static_cast<int>(t), 
-		static_cast<int>(w), 
-		static_cast<int>(h)
+		static_cast<int>((l <= (l+w)) ? l : l+w), 
+		static_cast<int>((t <= (t+h)) ? t : t+h), 
+		static_cast<int>((w >= 0) ? w : -w), 
+		static_cast<int>((h >= 0) ? h : -h)
 	};
 }

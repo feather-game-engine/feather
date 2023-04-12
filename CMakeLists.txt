@@ -20,28 +20,30 @@ endif()
 
 
 set(SOURCES
-    Feather/Components/Component.cpp
-    Feather/Components/Drawable.cpp
-    Feather/Components/KeyboardControl.cpp
-    Feather/Components/SoundEmitter.cpp
-    Feather/Components/Sprite.cpp
-    Feather/Components/Transform.cpp
-    Feather/Components/Velocity.cpp
-    Feather/Components/Collider.cpp
-    Feather/Debug/Debug.cpp
-    Feather/Entities/Entity.cpp
-    Feather/Systems/ComponentSystem.cpp
-    Feather/Systems/EntityManager.cpp
-    Feather/Systems/InputManager.cpp
-    Feather/Systems/KeyboardControlSystem.cpp
-    Feather/Systems/MovementSystem.cpp
-    Feather/Systems/RenderSystem.cpp
-    Feather/Systems/CollisionSystem.cpp
-    Feather/Windows/View.cpp
-    Feather/Windows/Window.cpp
-    Feather/Main.cpp
-    Feather/ResourceManager.cpp
-    Feather/Game.cpp
+    include/Feather/Components/AnimationComponent.cpp
+    include/Feather/Components/Component.cpp
+    include/Feather/Components/Drawable.cpp
+    include/Feather/Components/KeyboardControl.cpp
+    include/Feather/Components/SoundEmitter.cpp
+    include/Feather/Components/Sprite.cpp
+    include/Feather/Components/Transform.cpp
+    include/Feather/Components/Velocity.cpp
+    include/Feather/Components/Collider.cpp
+    include/Feather/Debug/Debug.cpp
+    include/Feather/Entities/Entity.cpp
+    include/Feather/Systems/AnimationSystem.cpp
+    include/Feather/Systems/ComponentSystem.cpp
+    include/Feather/Systems/EntityManager.cpp
+    include/Feather/Systems/InputManager.cpp
+    include/Feather/Systems/KeyboardControlSystem.cpp
+    include/Feather/Systems/MovementSystem.cpp
+    include/Feather/Systems/RenderSystem.cpp
+    include/Feather/Systems/CollisionSystem.cpp
+    include/Feather/Windows/View.cpp
+    include/Feather/Windows/Window.cpp
+    include/Feather/Main.cpp
+    include/Feather/ResourceManager.cpp
+    include/Feather/Game.cpp
 )
 
 find_library(LIB_IMAGE SDL2_image ./lib/Unix/lib_image)
@@ -58,7 +60,7 @@ add_executable(game
 
 target_include_directories(game
     PRIVATE
-        ${PROJECT_SOURCE_DIR}/
+        ${PROJECT_SOURCE_DIR}/include/
 )
 
 target_link_libraries(game

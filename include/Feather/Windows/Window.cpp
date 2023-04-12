@@ -72,12 +72,29 @@ void Window::clear(fl::Color color) {
 	SDL_RenderClear(m_renderer);
 }
 
+namespace {
+	SDL_RendererFlip getFlip(const IntRect& rect) {
+		SDL_RendererFlip flip = SDL_FLIP_NONE;
+		if(rect.w < 0) {
+			flip = SDL_FLIP_HORIZONTAL;
+		}
+		else if (rect.h < 0) {
+			flip = SDL_FLIP_VERTICAL;
+		}
+		return flip;
+	}
+}
+
 void Window::draw(SDL_Texture* texture, const fl::FloatRect& textureRect, const fl::FloatRect& destRect) {
+	SDL_RendererFlip flip = getFlip(textureRect);
 	// Convert world coordinates to screen coordinates.
 	SDL_Rect screenCoordsRect = m_view.mapToView(destRect).toSDL_Rect();
 	SDL_Rect textureSDLRect = textureRect.toSDL_Rect();
 
-	SDL_RenderCopy(m_renderer, texture, &textureSDLRect, &screenCoordsRect);
+	int error = SDL_RenderCopyEx(m_renderer, texture, &textureSDLRect, &screenCoordsRect, 0, NULL, flip);
+	if(error != 0) {
+		throw std::runtime_error(SDL_GetError());
+	}
 }
 
 void Window::draw(SDL_Texture* texture, const fl::FloatRect& destRect) {

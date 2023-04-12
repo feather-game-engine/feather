@@ -1,6 +1,6 @@
-#include "Feather/Entities/Entity.h"
+#include "Entity.h"
 
-unsigned fl::Entity::count = 0u;
+fl::IDtype fl::Entity::count = 0;
 
 namespace fl {
 
