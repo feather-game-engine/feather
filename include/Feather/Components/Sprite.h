@@ -36,6 +36,7 @@ private:
 	unsigned m_textureID;
 
 	IntRect m_textureRect;
+	std::shared_ptr<Transform> m_transform;
 }; // class Sprite
 
 }; // namespace fl

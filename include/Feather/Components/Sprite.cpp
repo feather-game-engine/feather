@@ -14,8 +14,8 @@ Sprite::Sprite(fl::Entity* owner, unsigned drawLayer, unsigned sortOrder)
 
 void Sprite::awake() {
 	// Ensure that Owner Entity has a Transform component
-	std::shared_ptr<fl::Transform> ownerTransform = m_owner->getComponent<fl::Transform>();
-	if (ownerTransform == nullptr)
+	m_transform = m_owner->getComponent<Transform>();
+	if (m_transform == nullptr)
 		throw std::logic_error("Sprite component needs a Transform component.");
 }
 
@@ -71,14 +71,20 @@ fl::IntRect Sprite::getTextureRect() const {
 }
 
 fl::FloatRect Sprite::getGlobalBounds() const {
-	auto transform = m_owner->getComponent<fl::Transform>();
+	Vector2f scale = m_transform->getScale();
+	Vector2f origin = m_transform->getOrigin();
+	Vector2f scaledOrigin{
+		origin.x * scale.x,
+		origin.y * scale.y 
+	};
+
 	return FloatRect(
 		{
-			transform->getPosition() - transform->getOrigin()
+			m_transform->getPosition() - scaledOrigin
 		},
 		{
-			static_cast<float>(m_textureRect.w), 
-			static_cast<float>(m_textureRect.h)	
+			static_cast<float>(m_textureRect.w * scale.x), 
+			static_cast<float>(m_textureRect.h * scale.y)	
 		}
 	);
 }

@@ -32,6 +32,7 @@ int main(int argc, char* argv[]) {
 	auto sprite = entity->addComponent<fl::Sprite>();
     auto sfx = entity->addComponent<fl::SoundEmitter>();
 	transform->setPosition({64, 64});
+	transform->setScale({2.f, 2.f});
 
 	sprite->loadTextureFromFile("./player.png");
     sfx->loadSoundFromFile("./track02.wav");
