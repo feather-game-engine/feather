@@ -57,24 +57,21 @@ unsigned int ResourceManager::loadSound(const std::string &path) {
 }
 
 SDL_Texture* ResourceManager::getTexture(unsigned int id) const {
-	auto search = texturesMap.find(id);
-	if (search == texturesMap.end())
-		return NULL;
-	return search->second;
+	if (texturesMap.contains(id))
+		return texturesMap.at(id);
+	return nullptr;
 }
 
 TTF_Font* ResourceManager::getFont(unsigned int id) const {
-	auto search = fontsMap.find(id);
-	if (search == fontsMap.end())
-		return NULL;
-	return search->second;
+	if (fontsMap.contains(id))
+		return fontsMap.at(id);
+	return nullptr;
 }
 
 Mix_Chunk* ResourceManager::getSound(unsigned int id) const {
-    auto search = soundsMap.find(id);
-    if (search == soundsMap.end())
-        return NULL;
-    return search->second;
+	if (soundsMap.contains(id))
+		return soundsMap.at(id);
+	return nullptr;
 }
 
 } // namespace fl

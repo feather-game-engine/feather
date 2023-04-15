@@ -1,6 +1,8 @@
 #include "Feather/Components/Sprite.h"
 #include "Feather/Entities/Entity.h"
 
+#include <iostream>
+
 namespace fl {
 
 Sprite::Sprite(fl::Entity* owner, unsigned drawLayer, unsigned sortOrder)
@@ -18,7 +20,7 @@ void Sprite::awake() {
 }
 
 void Sprite::draw(fl::Window& window) {
-	window.draw(m_owner->CONTEXT->resources->getTexture(m_textureID), this->getGlobalBounds());
+	window.draw(m_owner->CONTEXT->resources->getTexture(m_textureID), m_textureRect, this->getGlobalBounds());
 }
 
 unsigned Sprite::loadTextureFromFile(const std::string& path) {

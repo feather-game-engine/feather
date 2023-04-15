@@ -14,7 +14,6 @@ void AnimationComponent::awake() {
 	m_sprite = m_owner->getComponent<Sprite>().get();
 	if(m_sprite == nullptr)
 		throw std::runtime_error("Error! Sprite Component required when using AnimationComponent Component.");
-	m_currentAnimationID = m_nextAnimationID;
 	this->setAnimation(m_currentAnimationID);
 }
 
@@ -30,10 +29,17 @@ void AnimationComponent::setAnimation(IDtype animationID) {
 	if (!m_animationMap.contains(animationID)) {
 		throw std::invalid_argument("INVALID! No matching animation ID found");
 	}
-	m_nextAnimationID = animationID;
-	if (m_currentAnimationID == 0) {
-		updateAnimationID();
+	m_currentAnimationID = animationID;
+	
+	if (m_sprite == nullptr) {
+		return;
 	}
+
+	FrameData& frame = m_animationMap.at(m_currentAnimationID).frames[0];
+	m_sprite->setTexture(frame.textureID, frame.textureRect);
+
+	m_currentFrame = 0;
+	m_currentFrameTime = 0;
 }
 
 IDtype AnimationComponent::getCurrentAnimationID() const {
@@ -46,10 +52,6 @@ const Animation& AnimationComponent::getCurrentAnimation() const {
 
 void AnimationComponent::updateFrame(float deltaTime) {
 	const Animation& a = this->getCurrentAnimation();
-
-	if (m_currentAnimationID != m_nextAnimationID) {
-		updateAnimationID();
-	}
 
 	if ((a.frames.size() > 1) && (a.loop || m_currentFrame < a.frames.size() - 1)) {
 		m_currentFrameTime += deltaTime;
@@ -67,20 +69,6 @@ void AnimationComponent::updateFrame(float deltaTime) {
 			}
 		}
 	}
-}
-
-void AnimationComponent::updateAnimationID() {
-	if (m_sprite == nullptr) {
-		return;
-	}
-
-	m_currentAnimationID = m_nextAnimationID;
-
-	FrameData& frame = m_animationMap.at(m_currentAnimationID).frames[0];
-	m_sprite->setTexture(frame.textureID, frame.textureRect);
-
-	m_currentFrame = 0;
-	m_currentFrameTime = 0;
 }
 
 } // namepsace fl

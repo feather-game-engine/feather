@@ -86,12 +86,16 @@ namespace {
 }
 
 void Window::draw(SDL_Texture* texture, const fl::FloatRect& textureRect, const fl::FloatRect& destRect) {
+	if (texture == nullptr) {
+		throw std::runtime_error("Renderering Error. Attempting to draw a null texture.");
+	}
+
 	SDL_RendererFlip flip = getFlip(textureRect);
 	// Convert world coordinates to screen coordinates.
 	SDL_Rect screenCoordsRect = m_view.mapToView(destRect).toSDL_Rect();
 	SDL_Rect textureSDLRect = textureRect.toSDL_Rect();
 
-	int error = SDL_RenderCopyEx(m_renderer, texture, &textureSDLRect, &screenCoordsRect, 0, NULL, flip);
+	int error = SDL_RenderCopyEx(m_renderer, texture, &textureSDLRect, &screenCoordsRect, 0.0, NULL, flip);
 	if(error != 0) {
 		throw std::runtime_error(SDL_GetError());
 	}

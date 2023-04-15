@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
     auto sfx = entity->addComponent<fl::SoundEmitter>();
 	transform->setPosition({64, 64});
 
-	// sprite->loadTextureFromFile("./player.png");
+	sprite->loadTextureFromFile("./player.png");
     sfx->loadSoundFromFile("./track02.wav");
 
     auto hitbox = entity->addComponent<fl::Collider>();

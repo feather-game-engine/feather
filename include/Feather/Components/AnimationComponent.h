@@ -47,12 +47,10 @@ public:
 	const Animation& getCurrentAnimation() const;
 private:
 	void updateFrame(float deltaTime);
-	void updateAnimationID();
 
 	std::unordered_map<IDtype, Animation> 	m_animationMap;
 
 	IDtype 					m_currentAnimationID{};
-	IDtype					m_nextAnimationID{};
 
 	std::size_t				m_currentFrame{};
 
