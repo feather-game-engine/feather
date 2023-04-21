@@ -39,17 +39,11 @@ Shipping a game is still a WIP.
 
 As features are introduced and planned, they will appear here. Not all features listed here will make it into the final engine, nor will every future feature be listed here. **If you are looking to contribute to development, this could be a good place to start**.
 
-- A more advanced collision system
-- Game compiling system (a way to actually ship games)
+- A more advanced collision / physics system
 - Levels (like scenes in other engines)
-- Entity grouping
 - A timing system
 - Window resizing (game scales with it) & fullscreen windows
 - Simple serialization (saving & loading funcs)
-- Simple GUI, or at least some small helper utilities
-- More advanced input (key release and key press functions, as well as support for more keys)
-- Higher quality documentation & documentation translations
-- More advanced debugging inside the engine, such as returning an error when a sound is not found (similar to what is done for images currently). A debug mode (with a gui!) is currently being worked on.
 - Finished documentation
 - Updating the example project to showcase all features.
 
