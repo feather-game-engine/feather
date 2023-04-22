@@ -1,1 +1,0 @@
-This documentation is unfinished. It is planned to include content on the RNG, and other utilities.

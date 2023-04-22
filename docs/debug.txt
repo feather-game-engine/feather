@@ -1,8 +1,0 @@
-Feather currently contains 2 basic debugging functions - Log() and Crash(). Both of them take just one argument - some text - and print it to the terminal. Crash() also shuts down the game and provides some extra information while doing this.
-
-EXAMPLE
-
-void Begin(){
-	Log("Game Beggining");
-	Crash("Game Ending);
-}
