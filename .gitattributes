@@ -1,2 +1,3 @@
 lib/** linguist-vendored
-include/** linguist-vendored
+include/Unix/** linguist-vendored
+include/Windows/** linguist-vendored
