@@ -1,4 +1,4 @@
-# MAJOR REWORKS ARE CURRENTLY HAPPENING. PLEASE WAIT FOR THE 1.0 RELEASE BEFORE USING THE ENGINE FOR ANY PROPER PROJECT.
+# This project has been ARCHIVED because it isn't really recieving much work anymore and I don't really want to contribute it. I will probably write a newer, better game engine soon.
 
 # Feather Engine
 
