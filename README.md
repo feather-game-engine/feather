@@ -1,4 +1,4 @@
-# I'm back! Actual development will start again soon. Check out Javinal Charles' [BitAlchemy](https://github.com/JavinalCharles/BitAlchemy) Engine!
+# I'm back! Actual development will start again soon. Check out Javinal Charles' [BitAlchemy](https://github.com/JavinalCharles/BitAlchemy) Engine for a game engine.
 
 # Feather Engine
 
