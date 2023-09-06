@@ -1,4 +1,4 @@
-# This project has been ARCHIVED because it isn't really recieving much work anymore and I don't really want to contribute it. I will probably write a newer, better game engine soon.
+# I'm back! Actual development will start again soon. 
 
 # Feather Engine
 
