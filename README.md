@@ -1,5 +1,3 @@
-# I'm back! Actual development will start again soon. Check out Javinal Charles' [BitAlchemy](https://github.com/JavinalCharles/BitAlchemy) Engine for a game engine.
-
 # Feather Engine
 
 **CURRENTLY IN EARLY ALPHA. THE ENGINE IS SUBJECT TO CHANGE, AND BUGS MAY BE VERY COMMON.**
@@ -25,7 +23,7 @@ If you do contribute, you may place your name/username here
 
 ## Documentation
 
-Documentation is available in the docs/ directory. I may also make a tutorial when I have some time (if you wish to make a tutorial, go ahead and tell me, I will link it here). There is also an example project available in example/
+New documentation is being made for the engine. See the docs/ repository for more information.
 
 ## Building
 
@@ -40,11 +38,11 @@ Shipping a game is still a WIP.
 As features are introduced and planned, they will appear here. Not all features listed here will make it into the final engine, nor will every future feature be listed here. **If you are looking to contribute to development, this could be a good place to start**.
 
 - A more advanced collision / physics system
-- Levels (like scenes in other engines)
+- Some kind of state manager to make managing different scenes/levels easy
 - A timing system
 - Window resizing (game scales with it) & fullscreen windows
 - Simple serialization (saving & loading funcs)
 - Finished documentation
-- Updating the example project to showcase all features.
+- Reworking examples
 
 If you want to suggest a feature, open an issue.
